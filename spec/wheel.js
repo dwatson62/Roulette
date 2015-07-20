@@ -15,8 +15,21 @@ describe('Return the correct colour', function() {
 	it('when given 1', function() {
 		spyOn(Math, 'random').and.returnValue(0.01);
 		wheel.spin();
-		console.log(wheel.number)
-		console.log(wheel.colour)
 		expect(wheel.colour).toEqual('Red');
+	});
+
+	it('when given 2', function() {
+		spyOn(Math, 'random').and.returnValue(0.03);
+		wheel.spin();
+		expect(wheel.colour).toEqual('Black');
+	});
+
+	it('when given 0', function() {
+		// spyOn(Math, 'random').and.returnValue();
+		// wheel.spin();
+		wheel.number = 0;
+		console.log(wheel.number);
+		wheel.setColour();
+		expect(wheel.colour).toEqual('Green');
 	});
 });
