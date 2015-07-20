@@ -4,10 +4,17 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src='bower_components/angular/angular.js'></script>
+    <script src='/javascripts/player.js'></script>
+    <script src='/javascripts/wheel.js'></script>
     <script src='/javascripts/angularApp.js'></script>
   </head>
-  <body>
+  <body ng-controller='RouletteController as rltCtrl'>
     <h1><%= title %></h1>
     <p>Place your bets</p>
+    <br>
+    <img src='http://www.thegameoftheirlives.com/images/roulettetable.jpg'>
+    <br>
+    <div id='player-balance' ng-model='rltCtrl.playerBalance'> £{{rltCtrl.playerBalance}}
+    </div>
   </body>
 </html>
