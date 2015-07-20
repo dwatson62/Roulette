@@ -9,7 +9,7 @@ describe('Player starts with', function() {
 });
 
 describe('Player can bet and win', function() {
-	
+
 	it('on red', function() {
 		spyOn(Math, 'random').and.returnValue(0.01);
 		wheel.spin();
@@ -30,10 +30,24 @@ describe('Player can bet and win', function() {
 		player.bet(10, 1, wheel);
 		expect(player.balance).toEqual(450);
 	});
+
+	it('on even', function() {
+		spyOn(Math, 'random').and.returnValue(0.03);
+		wheel.spin();
+		player.bet(10, 'Even', wheel);
+		expect(player.balance).toEqual(120);
+	});
+
+	it('on odd', function() {
+		spyOn(Math, 'random').and.returnValue(0.01);
+		wheel.spin();
+		player.bet(10, 'Odd', wheel);
+		expect(player.balance).toEqual(120);
+	});
 });
 
 describe('Player can bet and lose', function() {
-	
+
 	it('on red', function() {
 		spyOn(Math, 'random').and.returnValue(0.03);
 		wheel.spin();
@@ -53,5 +67,19 @@ describe('Player can bet and lose', function() {
 		wheel.spin();
 		player.bet(10, 36, wheel);
 		expect(player.balance).toEqual(90);
+	});
+
+	it('on even', function() {
+		spyOn(Math, 'random').and.returnValue(0.03);
+		wheel.spin();
+		player.bet(10, 'Even', wheel);
+		expect(player.balance).toEqual(120);
+	});
+
+	it('on odd', function() {
+		spyOn(Math, 'random').and.returnValue(0.01);
+		wheel.spin();
+		player.bet(10, 'Odd', wheel);
+		expect(player.balance).toEqual(120);
 	});
 });
