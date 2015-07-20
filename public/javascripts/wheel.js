@@ -1,11 +1,13 @@
 function Wheel() {
 	this.colour;
 	this.number;
+	this.oddOrEven;
 };
 
 Wheel.prototype.spin = function() {
 	this.number = Math.floor((Math.random() * 36) + 1);	
 	this.setColour();
+	this.isOddOrEven();
 };
 
 Wheel.prototype.setColour = function() {
@@ -18,4 +20,13 @@ Wheel.prototype.setColour = function() {
 		}
 	}
 	this.colour = 'Black'
+};
+
+Wheel.prototype.isOddOrEven = function() {
+	if (this.number === 0) {
+		return this.oddOrEven = 'Zero';
+	} else if(this.number % 2 == 0 ) {
+		return this.oddOrEven = 'Even';
+	}
+	return this.oddOrEven = 'Odd';
 };

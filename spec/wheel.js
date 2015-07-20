@@ -25,11 +25,31 @@ describe('Return the correct colour', function() {
 	});
 
 	it('when given 0', function() {
+		// need to stub for 0
 		// spyOn(Math, 'random').and.returnValue();
 		// wheel.spin();
 		wheel.number = 0;
-		console.log(wheel.number);
 		wheel.setColour();
 		expect(wheel.colour).toEqual('Green');
+	});
+});
+
+describe('Returns correct odd/even', function() {
+	it('when given 1', function() {
+		spyOn(Math, 'random').and.returnValue(0.01);
+		wheel.spin();
+		expect(wheel.oddOrEven).toEqual('Odd');
+	});
+
+	it('when given 2', function() {
+		spyOn(Math, 'random').and.returnValue(0.03);
+		wheel.spin();
+		expect(wheel.oddOrEven).toEqual('Even');
+	});
+
+	it('when given 0', function() {
+		wheel.number = 0;
+		wheel.isOddOrEven();
+		expect(wheel.oddOrEven).toEqual('Zero');
 	});
 });
