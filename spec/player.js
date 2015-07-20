@@ -1,5 +1,5 @@
 beforeEach(function() {
-	player = new Player;
+	player = new Player();
 });
 
 describe('Player starts with', function() {

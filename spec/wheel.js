@@ -1,9 +1,8 @@
 beforeEach(function() {
-	wheel = new Wheel;
+	wheel = new Wheel();
 });
 describe('Returns a number', function() {
 	it('between 0 and 36', function() {
-		wheel = new Wheel;
 		wheel.spin();
 		expect(wheel.number >= 0 && wheel.number < 37).toBeTruthy();
 	});

@@ -1,6 +1,6 @@
 function Player() {
 	this.balance = 100;
-};
+}
 
 Player.prototype.bet = function(amount, option, wheel) {
 	if (option == 'Red' || option == 'Black') {
