@@ -53,3 +53,4 @@ describe('Returns correct odd/even', function() {
 		expect(wheel.oddOrEven).toEqual('Zero');
 	});
 });
+
