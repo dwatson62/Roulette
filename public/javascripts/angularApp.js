@@ -7,4 +7,9 @@ roulette.controller('RouletteController', [function() {
 
   self.playerBalance = player.balance;
 
+  self.numberBet = function(number) {
+    console.log(number);
+    self.number = number;
+  };
+
 }]);

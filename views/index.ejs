@@ -12,9 +12,16 @@
     <h1><%= title %></h1>
     <p>Place your bets</p>
     <br>
+    <% include board %>
+    <br>
+    <br>
     <img src='http://www.thegameoftheirlives.com/images/roulettetable.jpg'>
     <br>
     <div id='player-balance' ng-model='rltCtrl.playerBalance'> £{{rltCtrl.playerBalance}}
     </div>
+    <div id='player-bet' ng-model='rltCtrl.number'>You bet on {{rltCtrl.number}}</div>
+    <br>
+    <br>
+    <button ng-click='rltCtrl.spin()'>Spin!</button>
   </body>
 </html>
