@@ -23,6 +23,13 @@ describe('Player can bet and win', function() {
 		player.bet(10, 'Black', wheel);
 		expect(player.balance).toEqual(120);
 	});
+
+	it('on a number', function() {
+		spyOn(Math, 'random').and.returnValue(0.01);
+		wheel.spin();
+		player.bet(10, 1, wheel);
+		expect(player.balance).toEqual(450);
+	});
 });
 
 describe('Player can bet and lose', function() {
@@ -38,6 +45,13 @@ describe('Player can bet and lose', function() {
 		spyOn(Math, 'random').and.returnValue(0.01);
 		wheel.spin();
 		player.bet(10, 'Black', wheel);
+		expect(player.balance).toEqual(90);
+	});
+
+	it('on a number', function() {
+		spyOn(Math, 'random').and.returnValue(0.01);
+		wheel.spin();
+		player.bet(10, 36, wheel);
 		expect(player.balance).toEqual(90);
 	});
 });
