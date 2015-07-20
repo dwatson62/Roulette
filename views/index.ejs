@@ -19,9 +19,11 @@
     <br>
     <div id='player-balance' ng-model='rltCtrl.playerBalance'> £{{rltCtrl.playerBalance}}
     </div>
-    <div id='player-bet' ng-model='rltCtrl.number'>You bet on {{rltCtrl.number}}</div>
+    <div id='player-bet' ng-model='rltCtrl.bet'>You bet on {{rltCtrl.bet}}</div>
     <br>
     <br>
-    <button ng-click='rltCtrl.spin()'>Spin!</button>
+    <button id='spin-btn' ng-click='rltCtrl.spin()'>Spin!</button>
+    <div id='spin-result' ng-model='rltCtrl.spinResult'>Landed on {{rltCtrl.spinResult[0]}} {{rltCtrl.spinResult[1]}}</div>
+    <div id='past-spins' ng-repeat='pastSpins in rltCtrl.pastSpins | orderBy:"-"'><li>{{pastSpins.number}} {{pastSpins.colour}}</li></div>
   </body>
 </html>
