@@ -4,4 +4,4 @@ exports.config = {
   capabilites: {
     browserName: 'chrome'
   }
-}
+};

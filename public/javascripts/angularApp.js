@@ -27,7 +27,7 @@ roulette.controller('RouletteController', [function() {
     self.spinResult[0] = wheel.number;
     self.spinResult[1] = wheel.colour;
     self.spinHistory();
-    if (self.bet == null) { return; }
+    if (self.bet === null) { return; }
     self.updateBalance();
     self.bet = null;
   };
@@ -42,7 +42,7 @@ roulette.controller('RouletteController', [function() {
     } else if (self.bet == wheel.colour) {
       player.balance += (self.amountBet * 2);
     } else if (self.bet == wheel.oddOrEven) {
-      player.balance += (self.amountBet * 2)
+      player.balance += (self.amountBet * 2);
     } else {
       player.balance -= self.amountBet;
     }
