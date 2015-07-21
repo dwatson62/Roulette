@@ -33,6 +33,11 @@ roulette.controller('RouletteController', [function() {
     self.confirmBet();
   };
 
+  self.columnBet = function(column) {
+    self.bet.push( { 'bet': column, 'amount': self.amountBet } );
+    self.confirmBet();
+  };
+
   self.placeBet = function(amount) {
     self.amountBet = amount;
   };
@@ -59,6 +64,9 @@ roulette.controller('RouletteController', [function() {
 
   self.spin = function() {
     wheel.spin();
+    self.number = wheel.number + " " + wheel.colour;
+    $('#' + wheel.number).fadeOut(2000);
+    $('#' + wheel.number).fadeIn(2000);
     self.spinHistory();
     self.previousBet = self.bet;
     self.checkResult();
@@ -74,7 +82,11 @@ roulette.controller('RouletteController', [function() {
       self.checkColourBet(self.bet[i]);
       self.checkOddOrEvenBet(self.bet[i]);
       if (typeof(self.bet[i].bet) == 'string') {
-        self.checkStreetBet(self.bet[i]);
+        if (self.bet[i].bet.substring(0) == 'S') {
+          self.checkStreetBet(self.bet[i]);
+        } else {
+          self.checkColumnBet(self.bet[i]);
+        }
       }
     }
     self.endRound();
@@ -99,9 +111,15 @@ roulette.controller('RouletteController', [function() {
   };
 
   self.checkStreetBet = function(bet) {
-    // returns the street number the player betted on
     var streetNumber = parseInt(bet.bet.split('').pop());
     if (wheel.streetNumber == streetNumber) {
+      player.balance += (bet.amount * 3);
+    }
+  };
+
+  self.checkColumnBet = function(bet) {
+    var columnNumber = parseInt(bet.bet.split('')[0]);
+    if (wheel.columnNumber == columnNumber) {
       player.balance += (bet.amount * 3);
     }
   };

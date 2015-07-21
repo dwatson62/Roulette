@@ -5,6 +5,7 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
     <script src='bower_components/angular/angular.js'></script>
+    <script src='bower_components/jquery/dist/jquery.js'></script>
     <script src='/javascripts/player.js'></script>
     <script src='/javascripts/wheel.js'></script>
     <script src='/javascripts/angularApp.js'></script>
@@ -14,9 +15,10 @@
     <% include display %>
     <div class="container">
       <div class="row">
-        <div class="col-md-8"><% include board %><br><br><% include bets %></div>
+        <div class="col-md-8"><% include board %><br><br><% include bets %><% include playerDashboard %></div>
         <div class="col-md-4"><% include spinHistory %></div>
       </div>
     </div>
-  </center></body>
+  </center>
+</body>
 </html>

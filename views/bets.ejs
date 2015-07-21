@@ -1,7 +1,11 @@
-<button class='bet-btn' ng-disabled="rltCtrl.playerBalance < 1" ng-click='rltCtrl.placeBet(1)'>£1</button>
-<button class='bet-btn'  ng-disabled="rltCtrl.playerBalance < 5" ng-click='rltCtrl.placeBet(5)'>£5</button>
-<button class='bet-btn'  ng-disabled="rltCtrl.playerBalance < 10" ng-click='rltCtrl.placeBet(10)'>£10</button>
-<button class='bet-btn'  ng-disabled="rltCtrl.playerBalance < 20" ng-click='rltCtrl.placeBet(20)'>£20</button>
-<button id='repeat-btn' ng-click='rltCtrl.repeatBet()'>Repeat</button>
-<button ng-click='rltCtrl.clearBets()'>Clear Bets</button>
-<button id='spin-btn' ng-click='rltCtrl.spin()'>Spin!</button>
+<div class="row">
+  <div class="col-md-4 col-md-offset-1"><button id='1st12-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("1st 12")'>1st 12</button></div>
+  <div class="col-md-1 "><button id='2nd12-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("2nd 12")'>2nd 12</button></div>
+  <div class="col-md-3"><button id='3rd12-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("3rd 12")'>3rd 12</button></div>
+</div>
+<button id='red-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.colourBet("Red")'>Red</button>
+<button id='black-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.colourBet("Black")'>Black</button>
+<button id='odd-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.oddOrEvenBet("Odd")'>Odd</button>
+<button id='even-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.oddOrEvenBet("Even")'>Even</button>
+<br>
+<br>

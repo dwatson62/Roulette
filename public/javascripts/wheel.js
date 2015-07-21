@@ -4,7 +4,8 @@ Wheel.prototype.spin = function() {
 	this.number = Math.floor(Math.random() * 37);
 	this.setColour();
 	this.isOddOrEven();
-	this.checkStreetBet();
+  this.checkStreetBet();
+	this.checkColumnBet();
 };
 
 Wheel.prototype.setColour = function() {
@@ -46,4 +47,15 @@ Wheel.prototype.checkStreetBet = function() {
       }
     }
   }
+};
+
+Wheel.prototype.checkColumnBet = function() {
+  if (this.number <= 12 ) {
+    this.columnNumber = 1;
+    return;
+  } else if (this.number <= 24) {
+    this.columnNumber = 2;
+    return;
+  }
+  this.columnNumber = 3;
 };

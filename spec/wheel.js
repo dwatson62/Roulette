@@ -63,3 +63,11 @@ describe('Returns correct street number', function() {
 	});
 });
 
+describe('Returns correct column number', function() {
+	it('when given 1', function() {
+		spyOn(Math, 'random').and.returnValue(0.03);
+		wheel.spin();
+		expect(wheel.columnNumber).toEqual(1);
+	});
+});
+
