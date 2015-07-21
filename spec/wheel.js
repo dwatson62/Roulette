@@ -1,3 +1,5 @@
+var wheel;
+
 beforeEach(function() {
 	wheel = new Wheel();
 });

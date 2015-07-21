@@ -1,11 +1,13 @@
+var betBtn = element(by.className('bet-btn'));
 var numberBtn = element(by.className('number-btn'));
 var oddBtn = element(by.id('odd-btn'));
 var pastSpins = element.all(by.repeater('pastSpins in rltCtrl.pastSpins'));
 var playerBalance = element(by.id('player-balance'));
-var playerBet = element(by.id('player-bet'));
+var playerBet = element.all(by.repeater('bets in rltCtrl.bet'));
 var redBtn = element(by.id('red-btn'));
 var spinBtn = element(by.id('spin-btn'));
 var spinResult = element(by.id('spin-result'));
+var streetBtn = element(by.className('street-btn'));
 
 beforeEach(function (){
   browser.get('http://localhost:3000');
@@ -32,29 +34,28 @@ describe('Roulette table', function () {
 
 describe('Betting', function () {
 
-  it('Can bet on a number', function() {
+  beforeEach(function () {
+    betBtn.click();
+  });
+
+  it('Can bet on a number (0)', function() {
     numberBtn.click();
-    expect(playerBet.getText()).toEqual('You bet on 0');
+    expect(playerBet.getText()).toContain('0');
   });
 
   it('Can bet on a colour', function() {
     redBtn.click();
-    expect(playerBet.getText()).toEqual('You bet on Red');
+    expect(playerBet.getText()).toContain('Red');
   });
 
   it('Can bet on odd/even', function() {
     oddBtn.click();
-    expect(playerBet.getText()).toEqual('You bet on Odd');
+    expect(playerBet.getText()).toContain('Odd');
   });
 
-  it('Can spin the wheel and see the result', function() {
-    spinBtn.click();
-    expect(spinResult.getText()).toContain('Landed on');
+  it('Can bet on a street (3)', function() {
+    streetBtn.click();
+    expect(playerBet.getText()).toContain('Street 3');
   });
 
-  xit('Can bet on 0 and win if the wheel spins 0', function() {
-    numberBtn.click();
-    spinBtn.click();
-    expect(playerBalance.getText()).toChange();
-  });
 });
