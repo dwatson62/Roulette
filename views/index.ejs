@@ -8,14 +8,15 @@
     <script src='/javascripts/wheel.js'></script>
     <script src='/javascripts/angularApp.js'></script>
   </head>
-  <body ng-controller='RouletteController as rltCtrl'>
+  <body ng-controller='RouletteController as rltCtrl'><center>
     <h1><%= title %></h1>
     <p>Place your bets</p>
     <br>
     <% include board %>
     <br>
     <br>
-    <img src='http://www.thegameoftheirlives.com/images/roulettetable.jpg'>
+    <% include bets %>
+    <br>
     <br>
     <div id='player-balance' ng-model='rltCtrl.playerBalance'> £{{rltCtrl.playerBalance}}
     </div>
@@ -24,6 +25,6 @@
     <br>
     <button id='spin-btn' ng-click='rltCtrl.spin()'>Spin!</button>
     <div id='spin-result' ng-model='rltCtrl.spinResult'>Landed on {{rltCtrl.spinResult[0]}} {{rltCtrl.spinResult[1]}}</div>
-    <div id='past-spins' ng-repeat='pastSpins in rltCtrl.pastSpins | orderBy:"-"'><li>{{pastSpins.number}} {{pastSpins.colour}}</li></div>
-  </body>
+    Spin History: <div id='past-spins' ng-repeat='pastSpins in rltCtrl.pastSpins | orderBy:"-"'><li>{{pastSpins.number}} {{pastSpins.colour}}</li></div>
+  </center></body>
 </html>

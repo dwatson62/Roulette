@@ -1,7 +1,7 @@
 function Wheel() {}
 
 Wheel.prototype.spin = function() {
-	this.number = Math.floor((Math.random() * 36) + 1);
+	this.number = Math.floor(Math.random() * 37);
 	this.setColour();
 	this.isOddOrEven();
 };
@@ -13,7 +13,7 @@ Wheel.prototype.setColour = function() {
 		this.colour = 'Green';
 		return;
 	}
-	for (i = 0; i < reds.length; i ++ ) {
+	for (i = 0; i < reds.length; i ++) {
 		if (reds[i] === this.number) {
 			this.colour = 'Red';
 			return;

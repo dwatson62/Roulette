@@ -1,0 +1,22 @@
+<button class='number-btn' ng-click='rltCtrl.numberBet(0)'>0</button>
+<br>
+<br>
+<% for (i = 3; i < 37; i += 3) { %>
+  <button class='number-btn' ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+<% } %>
+<br>
+<br>
+<% for (i = 2; i < 37; i += 3) { %>
+  <button class='number-btn' ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+<% } %>
+<br>
+<br>
+<% for (i = 1; i < 37; i += 3) { %>
+  <button class='number-btn' ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+<% } %>
+<br>
+<br>
+<button id='red-btn' ng-click='rltCtrl.colourBet("Red")'>Red</button>
+<button id='black-btn' ng-click='rltCtrl.colourBet("Black")'>Black</button>
+<button id='odd-btn' ng-click='rltCtrl.oddOrEvenBet("Odd")'>Odd</button>
+<button id='even-btn' ng-click='rltCtrl.oddOrEvenBet("Even")'>Even</button>
