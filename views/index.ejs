@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
     <script src='bower_components/angular/angular.js'></script>
     <script src='/javascripts/player.js'></script>
     <script src='/javascripts/wheel.js'></script>
@@ -11,20 +12,13 @@
   <body ng-controller='RouletteController as rltCtrl'><center>
     <h1><%= title %></h1>
     <p>Place your bets</p>
-    <br>
-    <% include board %>
-    <br>
-    <br>
-    <% include bets %>
-    <br>
-    <br>
     <div id='player-balance' ng-model='rltCtrl.playerBalance'> £{{rltCtrl.playerBalance}}
     </div>
-    <div id='player-bet' ng-model='rltCtrl.bet'>You bet on {{rltCtrl.bet}}</div>
-    <br>
-    <br>
-    <button id='spin-btn' ng-click='rltCtrl.spin()'>Spin!</button>
-    <div id='spin-result' ng-model='rltCtrl.spinResult'>Landed on {{rltCtrl.spinResult[0]}} {{rltCtrl.spinResult[1]}}</div>
-    Spin History: <div id='past-spins' ng-repeat='pastSpins in rltCtrl.pastSpins | orderBy:"-"'><li>{{pastSpins.number}} {{pastSpins.colour}}</li></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8"><% include board %><br><br><% include bets %></div>
+        <div class="col-md-4">Spin History: <div id='past-spins' ng-repeat='pastSpins in rltCtrl.pastSpins | orderBy:"-"'><li>{{pastSpins.number}} {{pastSpins.colour}}</li></div></div>
+      </div>
+    </div>
   </center></body>
 </html>

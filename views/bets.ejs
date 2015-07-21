@@ -2,6 +2,8 @@
 <button ng-click='rltCtrl.placeBet(5)'>£5</button>
 <button ng-click='rltCtrl.placeBet(10)'>£10</button>
 <button ng-click='rltCtrl.placeBet(20)'>£20</button>
+<button id='spin-btn' ng-click='rltCtrl.spin()'>Spin!</button>
 <br>
 <br>
 <div id='amount-bet' ng-model='rltCtrl.amountBet'>Amount bet £{{rltCtrl.amountBet}}</div>
+<div id='player-bet' ng-model='rltCtrl.bet'>You bet on {{rltCtrl.bet}}</div>
