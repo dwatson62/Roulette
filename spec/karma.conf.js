@@ -14,8 +14,11 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [ 'public/javascripts/*.js',
-							'spec/*.js'
+    files: ['bower_components/angular/angular.js',
+            'bower_components/angular-route/angular-route.js',
+            'bower_components/angular-mocks/angular-mocks.js',
+            'public/javascripts/*.js',
+			'spec/*.js'
     ],
 
 
@@ -60,6 +63,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 };
