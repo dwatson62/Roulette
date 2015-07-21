@@ -1,6 +1,8 @@
 Roulette
 =======================
 
+[![Build Status](https://travis-ci.org/dwatson62/roulette.svg?branch=master)](https://travis-ci.org/dwatson62/roulette)
+
 ## Synopsis
 
 This is my personal project to practice MEAN JS skills. It is a Roulette game closely modelled on the real life, using play money. Once the game is up and running, I will also use it to learn more about CSS and styling.
