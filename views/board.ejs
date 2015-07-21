@@ -1,19 +1,22 @@
+<button class='number-btn' ng-click='rltCtrl.numberBet(0)'>0</button>
 <br>
 <br>
 <% for (i = 3; i < 37; i += 3) { %>
   <button class='number-btn' ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
 <% } %>
+<button class='street-btn' ng-click='rltCtrl.streetBet("Street 3")'>2 to 1</button>
 <br>
 <br>
-<button class='number-btn' ng-click='rltCtrl.numberBet(0)'>0</button>
 <% for (i = 2; i < 37; i += 3) { %>
   <button class='number-btn' ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
 <% } %>
+<button class='street-btn' ng-click='rltCtrl.streetBet("Street 2")'>2 to 1</button>
 <br>
 <br>
 <% for (i = 1; i < 37; i += 3) { %>
   <button class='number-btn' ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
 <% } %>
+<button class='street-btn' ng-click='rltCtrl.streetBet("Street 1")'>2 to 1</button>
 <br>
 <br>
 <button id='red-btn' ng-click='rltCtrl.colourBet("Red")'>Red</button>

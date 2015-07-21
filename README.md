@@ -20,7 +20,7 @@ Currently players can bet once per spin, on a number, colour or odd/even. Can al
 
 ## Job List
 
-- [ ] Setup Travis, Coverage and Code Climate
+- [ ] Setup Coveralls
 - [ ] Allow players to bet on a column and street
 - [ ] Allow players to bet more than once
 - [ ] End the game once player balance gets to £0

@@ -43,6 +43,8 @@ roulette.controller('RouletteController', [function() {
       player.balance += (self.amountBet * 2);
     } else if (self.bet == wheel.oddOrEven) {
       player.balance += (self.amountBet * 2);
+    } else if (self.bet.substring(0, 1) == 'S') {
+      self.checkStreetBet();
     } else {
       player.balance -= self.amountBet;
     }
@@ -52,6 +54,19 @@ roulette.controller('RouletteController', [function() {
 
   self.placeBet = function(amount) {
     self.amountBet = amount;
+  };
+
+  self.streetBet = function(street) {
+    self.bet = street;
+  };
+
+  self.checkStreetBet = function() {
+    var street = self.bet.substring(self.bet.length, self.bet.length - 1)
+    if (wheel.number % parseInt(street) == 0) {
+      player.balance += (self.amountBet * 3);
+    } else {
+      player.balance -= self.amountBet;
+    }
   };
 
   // self outOfMoney = function() {
