@@ -5,31 +5,31 @@ roulette.controller('RouletteController', [function() {
   var player = new Player();
   var wheel = new Wheel();
 
-  self.spinResult = [];
-  self.playerBalance = player.balance;
-  self.pastSpins = [];
   self.amountBet = 0;
   self.bet = [];
+  self.pastSpins = [];
+  self.playerBalance = player.balance;
   self.previousBet = [];
   self.previousAmountBet = 0;
+  self.spinResults = [];
 
   self.confirmBet = function() {
     player.balance -= self.amountBet;
     self.playerBalance = player.balance;
-  }
+  };
 
   self.numberBet = function(number) {
-    self.bet.push(number);
+    self.bet.push( { 'bet': number } );
     self.confirmBet();
   };
 
   self.colourBet = function(colour) {
-    self.bet.push(colour);
+    self.bet.push( { 'bet':colour } );
     self.confirmBet();
   };
 
   self.oddOrEvenBet = function(option) {
-    self.bet.push(option);
+    self.bet.push( { 'bet':option } );
     self.confirmBet();
   };
 
@@ -45,12 +45,10 @@ roulette.controller('RouletteController', [function() {
     self.playerBalance = player.balance;
     self.bet = [];
     self.amountBet = 0;
-  }
+  };
 
   self.spin = function() {
     wheel.spin();
-    self.spinResult[0] = wheel.number;
-    self.spinResult[1] = wheel.colour;
     self.spinHistory();
     self.previousAmountBet = self.amountBet;
     self.previousBet = self.bet;
@@ -60,7 +58,7 @@ roulette.controller('RouletteController', [function() {
   };
 
   self.spinHistory = function() {
-    self.pastSpins.push( { 'number': self.spinResult[0], 'colour': self.spinResult[1] } );
+    self.pastSpins.push( { 'number': wheel.number, 'colour': wheel.colour } );
   };
 
   self.updateBalance = function() {
@@ -71,7 +69,7 @@ roulette.controller('RouletteController', [function() {
         player.balance += (self.amountBet * 2);
       } else if (self.bet[i] == wheel.oddOrEven) {
         player.balance += (self.amountBet * 2);
-      } else {
+      } else if (typeof(self.bet[i]['bet']) == 'string') {
         self.checkStreetBet(self.bet[i]);
       }
     }
@@ -84,23 +82,16 @@ roulette.controller('RouletteController', [function() {
   };
 
   self.streetBet = function(street) {
-    self.bet.push(street);
+    self.bet.push( { 'bet':street } );
     self.confirmBet();
   };
 
   self.checkStreetBet = function(bet) {
-    console.log(bet)
-    if (typeof(bet) != 'string') { return; }
-    var street = bet.substring(bet.length, bet.length - 1)
-    if (wheel.number % parseInt(street) == 0) {
+    // returns the street number the player betted on
+    var streetNumber = parseInt(bet['bet'].split('').pop());
+    if (wheel.streetNumber == streetNumber) {
       player.balance += (self.amountBet * 3);
-    } else {
-      player.balance -= self.amountBet;
     }
   };
-
-  // self outOfMoney = function() {
-
-  // }
 
 }]);

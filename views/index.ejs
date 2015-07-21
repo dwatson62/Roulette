@@ -11,13 +11,11 @@
   </head>
   <body ng-controller='RouletteController as rltCtrl'><center>
     <h1><%= title %></h1>
-    <p>Place your bets</p>
-    <div id='player-balance' ng-model='rltCtrl.playerBalance'> £{{rltCtrl.playerBalance}}
-    </div>
+    <% include display %>
     <div class="container">
       <div class="row">
         <div class="col-md-8"><% include board %><br><br><% include bets %></div>
-        <div class="col-md-4">Spin History: <div id='past-spins' ng-repeat='pastSpins in rltCtrl.pastSpins | orderBy:"-"'><li>{{pastSpins.number}} {{pastSpins.colour}}</li></div></div>
+        <div class="col-md-4"><% include spinHistory %></div>
       </div>
     </div>
   </center></body>

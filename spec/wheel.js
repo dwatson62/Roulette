@@ -53,3 +53,11 @@ describe('Returns correct odd/even', function() {
 	});
 });
 
+describe('Returns correct street number', function() {
+	it('when given 1', function() {
+		spyOn(Math, 'random').and.returnValue(0.03);
+		wheel.spin();
+		expect(wheel.streetNumber).toEqual(1);
+	});
+});
+

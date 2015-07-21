@@ -4,6 +4,7 @@ Wheel.prototype.spin = function() {
 	this.number = Math.floor(Math.random() * 37);
 	this.setColour();
 	this.isOddOrEven();
+	this.checkStreetBet();
 };
 
 Wheel.prototype.setColour = function() {
@@ -31,4 +32,18 @@ Wheel.prototype.isOddOrEven = function() {
 		return;
 	}
 	this.oddOrEven = 'Odd';
+};
+
+Wheel.prototype.checkStreetBet = function() {
+  var streets = [ [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34],
+                  [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35],
+                  [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36] ];
+  for (i = 0; i < streets.length; i ++) {
+    for (j = 0; j < streets[i].length; j ++) {
+      if (this.number == streets[i][j]) {
+        this.streetNumber = i + 1;
+        return;
+      }
+    }
+  }
 };
