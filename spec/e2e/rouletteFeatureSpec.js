@@ -38,8 +38,8 @@ describe('Roulette table', function() {
     spinBtn.click();
     repeatBtn.click();
     expect(playerBet.getText()).toContain('£1 on 0');
-    expect(amountBet.getText()).toEqual('Total bet £1')
-  })
+    expect(amountBet.getText()).toEqual('Total bet £1');
+  });
 
 });
 
@@ -74,12 +74,12 @@ describe('Betting', function() {
     oddBtn.click();
     numberBtn.click();
     streetBtn.click();
-    expect(amountBet.getText()).toEqual('Total bet £3')
+    expect(amountBet.getText()).toEqual('Total bet £3');
   });
 
 });
 
-xdescribe('Player balance', function() {
+describe('Player balance', function() {
 
   it('is deducted for each bet', function() {
     betBtn.click();
@@ -99,7 +99,6 @@ describe('Player cannot', function() {
   });
 
   xit('Bet more money than they have', function() {
-    playerBalance.getText() = 0;
     expect(betBtn.isEnabled()).toBe(false);
   });
 
