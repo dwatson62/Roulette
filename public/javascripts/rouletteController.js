@@ -10,6 +10,7 @@
   self.previousBet = [];
   self.spinResults = [];
   self.totalBet = 0;
+  self.winnings = 0;
 
   self.numberBet = function(number) {
     self.bet.push( { 'bet': number, 'amount': self.amountBet } );
@@ -92,6 +93,8 @@
 
   self.endRound = function() {
     self.playerBalance = player.balance;
+    self.winnings = player.winnings;
+    player.resetWinnings();
     self.amountBet = 0;
     self.bet = [];
     self.totalBet = 0;

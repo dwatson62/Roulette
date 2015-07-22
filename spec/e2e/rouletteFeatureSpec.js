@@ -10,6 +10,7 @@ var repeatBtn = element(by.id('repeat-btn'));
 var spinBtn = element(by.id('spin-btn'));
 var spinResult = element(by.id('spin-result'));
 var streetBtn = element(by.className('street-btn'));
+var winnings = element(by.id('winnings'));
 
 beforeEach(function(){
   browser.get('http://localhost:3000');
@@ -39,6 +40,10 @@ describe('Roulette table', function() {
     repeatBtn.click();
     expect(playerBet.getText()).toContain('£1 on 0');
     expect(amountBet.getText()).toEqual('Total bet £1');
+  });
+
+  it('Displays player winnings', function() {
+    expect(winnings.getText()).toContain('Your winnings: £')
   });
 
 });

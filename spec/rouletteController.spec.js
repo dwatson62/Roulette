@@ -73,4 +73,90 @@ describe('RouletteController', function() {
 
   });
 
+  describe('(1) Player can bet and lose', function() {
+
+    beforeEach(function() {
+      // return 1
+      spyOn(Math, 'random').and.returnValue(0.03);
+      ctrl.amountBet = 10;
+    });
+
+    it('on 2', function() {
+      ctrl.numberBet('2');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(90)
+    });
+
+    it('on even', function() {
+      ctrl.oddOrEvenBet('Even');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(90)
+    });
+
+    it('on black', function() {
+      ctrl.colourBet('Black');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(90)
+    });
+
+    it('on a street', function() {
+      ctrl.streetBet('Street 2');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(90)
+    });
+
+    it('on a column', function() {
+      ctrl.columnBet('Col2');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(90)
+    });
+
+  });
+
+  describe('Can bet multiple times', function() {
+
+    beforeEach(function() {
+      // return 1
+      spyOn(Math, 'random').and.returnValue(0.03);
+    });
+
+    it('with the same amount', function() {
+      ctrl.amountBet = 10;
+      ctrl.oddOrEvenBet('Odd');
+      ctrl.streetBet('Street 1');
+      ctrl.columnBet('Col1');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(160)
+    });
+
+    it('with different amounts', function() {
+      ctrl.amountBet = 10;
+      ctrl.oddOrEvenBet('Odd');
+      ctrl.amountBet = 20;
+      ctrl.streetBet('Street 1');
+      ctrl.amountBet = 5;
+      ctrl.columnBet('Col1');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(170)
+    });
+
+  });
+
+  describe('Shows player winnnings after each game', function() {
+
+    it('when a player has won', function() {
+      // returns 1
+      spyOn(Math, 'random').and.returnValue(0.03);
+      ctrl.amountBet = 10;
+      ctrl.oddOrEvenBet('Odd');
+      ctrl.spin();
+      expect(ctrl.winnings).toEqual(20);
+    });
+
+    it('when a player did not win', function() {
+      wheel.spin();
+      expect(player.winnings).toEqual(0);
+    });
+  });
+
 });
