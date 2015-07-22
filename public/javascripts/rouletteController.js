@@ -41,7 +41,7 @@
   };
 
   self.confirmBet = function() {
-    player.bet(self.amountBet);
+    player.placeBet(self.amountBet);
     self.playerBalance = player.balance;
     self.totalBet += self.amountBet;
   };
@@ -78,23 +78,16 @@
     for (i = 0; i < self.bet.length; i ++) {
       var amount = self.bet[i].amount
       var bet = self.bet[i].bet
-      player.colourBet(amount, bet, wheel)
-      player.numberBet(amount, bet, wheel)
-      player.oddOrEvenBet(amount, bet, wheel)
-      if (bet.substring(0, 1) == 'S') {
-        player.streetBet(amount, bet, wheel);
-      } else if (bet.substring(0, 1) == 'C') {
-        self.checkColumnBet(self.bet[i]);
+      player.colourBetCheck(amount, bet, wheel)
+      player.numberBetCheck(amount, bet, wheel)
+      player.oddOrEvenBetCheck(amount, bet, wheel)
+      if (typeof(bet) == 'string' && bet.substring(0, 1) == 'S') {
+        player.streetBetCheck(amount, bet, wheel);
+      } else if (typeof(bet) == 'string' && bet.substring(0, 1) == 'C') {
+        player.columnBetCheck(amount, bet, wheel);
       }
     }
     self.endRound();
-  };
-
-  self.checkColumnBet = function(bet) {
-    var columnNumber = parseInt(bet.bet.split('')[0]);
-    if (wheel.columnNumber == columnNumber) {
-      player.balance += (bet.amount * 3);
-    }
   };
 
   self.endRound = function() {

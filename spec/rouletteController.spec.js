@@ -43,6 +43,12 @@ describe('RouletteController', function() {
       expect(ctrl.playerBalance).toEqual(120)
     });
 
+    it('on a column', function() {
+      ctrl.columnBet('Col1');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(120)
+    });
+
   });
 
   describe('(22) Player can bet and win', function() {
