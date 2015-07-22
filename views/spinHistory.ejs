@@ -1,0 +1,3 @@
+<h3>Your previous bet:</h3><div id='previous-bet' ng-repeat='previousBet in rltCtrl.previousBet'>£{{previousBet.amount}} on {{previousBet.bet}}</div>
+<br>
+<h3>Spin History: </h3><div id='past-spins' ng-repeat='pastSpins in rltCtrl.pastSpins | orderBy:"-"'><li>{{pastSpins.number}} {{pastSpins.colour}}</li></div>

@@ -1,0 +1,5 @@
+<h3><p>Place your bets</p></h3>
+<div id='player-balance' ng-model='rltCtrl.playerBalance'> £{{rltCtrl.playerBalance}}</div>
+<div id='amount-bet' ng-model='rltCtrl.totalBet'>Total bet £{{rltCtrl.totalBet}}</div>
+Last number:<div id='previous-result' ng-model="rltCtrl.number">{{rltCtrl.number}}</div>
+Your bets:<div id='player-bet' ng-repeat='bets in rltCtrl.bet'><li> £{{bets.amount}} on {{bets.bet}} </li></div>
