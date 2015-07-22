@@ -11,6 +11,13 @@ describe('RouletteController', function() {
     expect(ctrl.playerBalance).toEqual(100)
   });
 
+  it('Player can clear current bets', function() {
+    ctrl.amountBet = 10;
+    ctrl.colourBet('Red');
+    ctrl.clearBets();
+    expect(ctrl.bet).toEqual([]);
+  });
+
   describe('(1) Player can bet and win', function() {
 
     beforeEach(function() {
