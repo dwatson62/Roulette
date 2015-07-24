@@ -9,6 +9,18 @@ This is my personal project to practice MEAN JS skills. It is a Roulette game cl
 
 Currently players can bet multiple amounts on different on different numbers, colours, odd/even, streets and columns. Can also view past spins for that particular session, and repeat the previous bet.
 
+## Installation
+
+- Clone down to your computer
+- Run npm start (this will download all npm and bower packages, and launch the server)
+- Visit http://localhost:3000
+
+## Tests
+
+- Clone down to your computer
+- Run npm test (this will download all npm and bower packages, and run the Jasmine/Karma tests)
+- To run the protractor tests, in separate windows run npm start, webdriver-manager start, protractor start spec/e2e/conf.js
+
 ![Roulette](http://gamesofroulette.com/img/pictures/roulette-rules/european-roulette-table.gif)
 
 ## Technologies Used
@@ -21,23 +33,10 @@ Currently players can bet multiple amounts on different on different numbers, co
 ## Job List
 
 - [ ] Setup Coveralls
-- [X] Allow players to bet on a column and street
-- [X] Allow players to bet more than once
 - [ ] End the game once player balance gets to £0
 - [ ] CSS Styling
 - [ ] Set the spin() to run every 10 seconds
-- [ ] Missing Angular unit Karma tests
-
-## Favourite Code Snippet
-
-~~~
- TODO: paste code here
-~~~
 
 ## Collaborators
 
 - Daryl (http://www.github.com/dwatson62)
-
-## Takeaway
-
-TODO: Enter a personal reflection and/or things you learnt
