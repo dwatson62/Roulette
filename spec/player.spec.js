@@ -43,6 +43,11 @@ describe('(1) Player can bet', function() {
 			expect(player.balance).toEqual(120);
 		});
 
+		it('on 1-18', function() {
+			player.halfTableBetCheck(10, '1 - 18', wheel);
+			expect(player.balance).toEqual(120)
+		});
+
 	});
 
 	describe('and lose', function() {
@@ -55,6 +60,11 @@ describe('(1) Player can bet', function() {
 		it('on even', function() {
 			player.oddOrEvenBetCheck(10, 'Even', wheel);
 			expect(player.balance).toEqual(90);
+		});
+
+		it('on 19-36', function() {
+			player.halfTableBetCheck(10, '19 - 36', wheel);
+			expect(player.balance).toEqual(90)
 		});
 	});
 
@@ -80,6 +90,11 @@ describe('(22) Player can bet', function() {
 			expect(player.balance).toEqual(120);
 		});
 
+		it('on 19-36', function() {
+			player.halfTableBetCheck(10, '19 - 36', wheel);
+			expect(player.balance).toEqual(120)
+		});
+
 	});
 
 	describe('and lose', function() {
@@ -97,6 +112,11 @@ describe('(22) Player can bet', function() {
 		it('on odd', function() {
 			player.oddOrEvenBetCheck(10, 'Odd', wheel);
 			expect(player.balance).toEqual(90);
+		});
+
+		it('on 1-18', function() {
+			player.halfTableBetCheck(10, '1 - 18', wheel);
+			expect(player.balance).toEqual(90)
 		});
 
 	});

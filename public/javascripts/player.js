@@ -50,3 +50,16 @@ Player.prototype.columnBetCheck = function(amount, option, wheel) {
     this.winnings += (amount * 3);
    }
 };
+
+Player.prototype.halfTableBetCheck = function(amount, option, wheel) {
+  var half = parseInt(option.split('').splice(-2).join(''))
+  if (half == 18 && wheel.number < 19 && wheel.number > 0) {
+    this.balance += amount;
+    this.balance += (amount * 2);
+    this.winnings += (amount * 2);
+   } else if (half == 36 && wheel.number > 18 && wheel.number < 37 ) {
+    this.balance += amount;
+    this.balance += (amount * 2);
+    this.winnings += (amount * 2);
+   }
+};

@@ -3,6 +3,7 @@ var betBtn = element(by.className('bet-btn'));
 var clearBtn = element(by.id('clear-btn'));
 var numberBtn = element(by.className('number-btn'));
 var oddBtn = element(by.id('odd-btn'));
+var oneTo18Btn = element(by.id('1to18-btn'));
 var pastSpins = element.all(by.repeater('pastSpins in rltCtrl.pastSpins'));
 var playerBalance = element(by.id('player-balance'));
 var playerBet = element.all(by.repeater('bets in rltCtrl.bet'));
@@ -90,6 +91,11 @@ describe('Betting', function() {
   it('Can bet on a street (3)', function() {
     streetBtn.click();
     expect(playerBet.getText()).toContain('£1 on Street 3');
+  });
+
+  it('Can bet on a 1-18', function() {
+    oneTo18Btn.click();
+    expect(playerBet.getText()).toContain('£1 on 1 - 18');
   });
 
   it('displays the total bet on each round', function() {

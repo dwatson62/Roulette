@@ -56,13 +56,19 @@ describe('RouletteController', function() {
       expect(ctrl.playerBalance).toEqual(120)
     });
 
+    it('on 1-18', function() {
+      ctrl.halfTableBet('1 - 18');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(120)
+    });
+
   });
 
   describe('(22) Player can bet and win', function() {
 
     beforeEach(function() {
       // return 22
-      spyOn(Math, 'random').and.returnValue(0.06);
+      spyOn(Math, 'random').and.returnValue(0.6);
       ctrl.amountBet = 10;
     });
 
@@ -74,6 +80,12 @@ describe('RouletteController', function() {
 
     it('on black', function() {
       ctrl.colourBet('Black');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(120)
+    });
+
+    it('on 19-36', function() {
+      ctrl.halfTableBet('19 - 36');
       ctrl.spin();
       expect(ctrl.playerBalance).toEqual(120)
     });
@@ -113,7 +125,13 @@ describe('RouletteController', function() {
     });
 
     it('on a column', function() {
-      ctrl.columnBet('Col2');
+      ctrl.columnBet('Col 2');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(90)
+    });
+
+    it('on 19-36', function() {
+      ctrl.halfTableBet('19 - 36');
       ctrl.spin();
       expect(ctrl.playerBalance).toEqual(90)
     });
@@ -142,7 +160,7 @@ describe('RouletteController', function() {
       ctrl.amountBet = 20;
       ctrl.streetBet('Street 1');
       ctrl.amountBet = 5;
-      ctrl.columnBet('Col1');
+      ctrl.columnBet('Col 1');
       ctrl.spin();
       expect(ctrl.playerBalance).toEqual(170)
     });
