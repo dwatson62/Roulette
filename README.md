@@ -7,7 +7,7 @@ Roulette
 
 This is my personal project to practice MEAN JS and CSS styling. It is a game replicating European style Roulette using play money.
 
-Currently players can bet multiple amounts on different on different numbers, colours, odd/even, streets and columns. Can also view past spins for that particular session, and repeat the previous bet.
+Currently players can bet multiple amounts on different on different numbers, colours, odd/even, columns, high/low and dozens. Can also view past spins for that particular session, and repeat the previous bet.
 
 Most of the game functionality is in pace. It is missing the functionality for some of the inside bets, such as split bets, corner bets, and line bets. However, these will be difficult to implement without styling and displaying the board properly.
 
