@@ -5,9 +5,11 @@ Roulette
 
 ## Synopsis
 
-This is my personal project to practice MEAN JS skills. It is a Roulette game closely modelled on the real life, using play money. Once the game is up and running, I will also use it to learn more about CSS and styling.
+This is my personal project to practice MEAN JS and CSS styling. It is a game replicating European style Roulette using play money.
 
 Currently players can bet multiple amounts on different on different numbers, colours, odd/even, streets and columns. Can also view past spins for that particular session, and repeat the previous bet.
+
+Most of the game functionality is in pace. It is missing the functionality for some of the inside bets, such as split bets, corner bets, and line bets. However, these will be difficult to implement without styling and displaying the board properly.
 
 ## Installation
 
@@ -23,6 +25,8 @@ Currently players can bet multiple amounts on different on different numbers, co
 
 ![Roulette](http://gamesofroulette.com/img/pictures/roulette-rules/european-roulette-table.gif)
 
+![Roulette bets](http://bestroulette.net/wp-content/uploads/2009/12/types-of-roulette-bets.gif)
+
 ## Technologies Used
 
 - Javascript
@@ -33,9 +37,11 @@ Currently players can bet multiple amounts on different on different numbers, co
 ## Job List
 
 - [ ] Setup Coveralls
+- [ ] Setup travis to run protractor tests
 - [ ] End the game once player balance gets to £0
 - [ ] CSS Styling
 - [ ] Set the spin() to run every 10 seconds
+- [ ] Add functionality for other inside bets
 
 ## Collaborators
 

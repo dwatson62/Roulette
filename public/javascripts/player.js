@@ -12,54 +12,47 @@ Player.prototype.resetWinnings = function() {
 };
 
 Player.prototype.colourBetCheck = function(amount, option, wheel) {
-	if (wheel.colour == option) {
-		this.balance += amount;
-		this.balance += amount * 2;
-		this.winnings += amount * 2;
+	if (wheel.colour === option) {
+		this.balance += (amount * 3);
+		this.winnings += (amount * 2);
 	}
 };
 
 Player.prototype.numberBetCheck = function(amount, option, wheel) {
-	if (wheel.number == option) {
-		this.balance += amount;
-		this.balance += amount * 35;
-		this.winnings += amount * 35;
+	if (wheel.number === option) {
+		this.balance += (amount * 36);
+		this.winnings += (amount * 35);
 	}
 };
 
 Player.prototype.oddOrEvenBetCheck = function(amount, option, wheel) {
-	if (wheel.oddOrEven == option) {
-		this.balance += amount;
-		this.balance += amount * 2;
-		this.winnings += amount * 2;
+	if (wheel.oddOrEven === option) {
+		this.balance += (amount * 3);
+		this.winnings += (amount * 2);
 	}
 };
 
-Player.prototype.streetBetCheck = function(amount, option, wheel) {
-	var streetNumber = parseInt(option.split('').pop());
-    if (wheel.streetNumber == streetNumber) {
+Player.prototype.columnBetCheck = function(amount, option, wheel) {
+	var columnNumber = parseInt(option.split('').pop());
+    if (wheel.columnNumber === columnNumber) {
       this.balance += (amount * 3);
-      this.winnings += (amount * 3);
+      this.winnings += (amount * 2);
     }
 };
 
-Player.prototype.columnBetCheck = function(amount, option, wheel) {
-  var columnNumber = parseInt(option.split('').pop());
-  if (wheel.columnNumber == columnNumber) {
+Player.prototype.dozenBetCheck = function(amount, option, wheel) {
+  var dozenNumber = parseInt(option.split('').pop());
+  if (wheel.dozenNumber === dozenNumber) {
     this.balance += (amount * 3);
-    this.winnings += (amount * 3);
+    this.winnings += (amount * 2);
    }
 };
 
-Player.prototype.halfTableBetCheck = function(amount, option, wheel) {
-  var half = parseInt(option.split('').splice(-2).join(''))
-  if (half == 18 && wheel.number < 19 && wheel.number > 0) {
-    this.balance += amount;
-    this.balance += (amount * 2);
+Player.prototype.highLowBetCheck = function(amount, option, wheel) {
+  var first = parseInt(option.split('').splice(0, 2).join(''));
+  var second = parseInt(option.split('').splice(-2).join(''));
+  if (first <= wheel.number && wheel.number <= second) {
+    this.balance += (amount * 3);
     this.winnings += (amount * 2);
-   } else if (half == 36 && wheel.number > 18 && wheel.number < 37 ) {
-    this.balance += amount;
-    this.balance += (amount * 2);
-    this.winnings += (amount * 2);
-   }
+  }
 };

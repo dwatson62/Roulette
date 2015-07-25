@@ -22,7 +22,7 @@ roulette.controller('RouletteController', [function() {
   };
 
   self.numberBet = function(number) {
-    self.bet.push( { 'bet': number, 'amount': self.amountBet } );
+    self.bet.push( { 'bet': parseInt(number), 'amount': self.amountBet } );
     self.confirmBet();
   };
 
@@ -36,18 +36,18 @@ roulette.controller('RouletteController', [function() {
     self.confirmBet();
   };
 
-  self.streetBet = function(street) {
-    self.bet.push( { 'bet': street, 'amount': self.amountBet } );
-    self.confirmBet();
-  };
-
   self.columnBet = function(column) {
     self.bet.push( { 'bet': column, 'amount': self.amountBet } );
     self.confirmBet();
   };
 
-  self.halfTableBet = function(half) {
-    self.bet.push( { 'bet': half, 'amount': self.amountBet } );
+  self.dozenBet = function(dozen) {
+    self.bet.push( { 'bet': dozen, 'amount': self.amountBet } );
+    self.confirmBet();
+  };
+
+  self.highLowBet = function(highLow) {
+    self.bet.push( { 'bet': highLow, 'amount': self.amountBet } );
     self.confirmBet();
   };
 
@@ -73,35 +73,42 @@ roulette.controller('RouletteController', [function() {
 
   self.spin = function() {
     wheel.spin();
-    self.number = wheel.number + " " + wheel.colour;
-    // $('#' + wheel.number).fadeOut(2000);
-    // $('#' + wheel.number).fadeIn(2000);
+    self.displayNumber();
     self.spinHistory();
     self.previousBet = self.bet;
-    self.checkResult();
+    self.checkPlayerBets();
+    self.endRound();
+  };
+
+  self.displayNumber = function() {
+    self.number = wheel.number + " " + wheel.colour;
+    $('#' + wheel.number).fadeOut(2000);
+    $('#' + wheel.number).fadeIn(2000);
   };
 
   self.spinHistory = function() {
     self.pastSpins.push( { 'number': wheel.number, 'colour': wheel.colour } );
   };
 
-  self.checkResult = function() {
+  self.checkPlayerBets = function() {
     for (i = 0; i < self.bet.length; i ++) {
-      var amount = self.bet[i].amount
-      var bet = self.bet[i].bet
-      player.colourBetCheck(amount, bet, wheel)
-      player.numberBetCheck(amount, bet, wheel)
-      player.oddOrEvenBetCheck(amount, bet, wheel)
-      if (typeof(bet) == 'string') {
-        player.halfTableBetCheck(amount, bet, wheel);
-      }
-      if (typeof(bet) == 'string' && bet.substring(0, 1) == 'S') {
-        player.streetBetCheck(amount, bet, wheel);
-      } else if (typeof(bet) == 'string' && bet.substring(0, 1) == 'C') {
-        player.columnBetCheck(amount, bet, wheel);
-      }
+      var amount = self.bet[i].amount;
+      var bet = self.bet[i].bet;
+      player.colourBetCheck(amount, bet, wheel);
+      player.numberBetCheck(amount, bet, wheel);
+      player.oddOrEvenBetCheck(amount, bet, wheel);
+      if (typeof(bet) == 'string') { self.checkOutsideBets(amount, bet); }
     }
-    self.endRound();
+  };
+
+  self.checkOutsideBets = function(amount, bet) {
+    if (bet.substring(0, 6) == 'Column') {
+      player.columnBetCheck(amount, bet, wheel);
+    } else if (bet.substring(0, 5) == 'Dozen') {
+      player.dozenBetCheck(amount, bet, wheel);
+    } else {
+      player.highLowBetCheck(amount, bet, wheel);
+    }
   };
 
   self.endRound = function() {

@@ -33,19 +33,19 @@ describe('(1) Player can bet', function() {
 			expect(player.balance).toEqual(120);
 		});
 
-		it('on a street', function() {
-			player.streetBetCheck(10, 'Street 1', wheel);
+		it('on a column', function() {
+			player.columnBetCheck(10, 'Column 1', wheel);
 			expect(player.balance).toEqual(120);
 		});
 
-		it('on a column', function() {
-			player.columnBetCheck(10, 'Col 1', wheel);
+		it('on a dozen', function() {
+			player.dozenBetCheck(10, 'Dozen 1', wheel);
 			expect(player.balance).toEqual(120);
 		});
 
 		it('on 1-18', function() {
-			player.halfTableBetCheck(10, '1 - 18', wheel);
-			expect(player.balance).toEqual(120)
+			player.highLowBetCheck(10, '1 - 18', wheel);
+			expect(player.balance).toEqual(120);
 		});
 
 	});
@@ -63,8 +63,8 @@ describe('(1) Player can bet', function() {
 		});
 
 		it('on 19-36', function() {
-			player.halfTableBetCheck(10, '19 - 36', wheel);
-			expect(player.balance).toEqual(90)
+			player.highLowBetCheck(10, '19 - 36', wheel);
+			expect(player.balance).toEqual(90);
 		});
 	});
 
@@ -91,8 +91,8 @@ describe('(22) Player can bet', function() {
 		});
 
 		it('on 19-36', function() {
-			player.halfTableBetCheck(10, '19 - 36', wheel);
-			expect(player.balance).toEqual(120)
+			player.highLowBetCheck(10, '19 - 36', wheel);
+			expect(player.balance).toEqual(120);
 		});
 
 	});
@@ -115,8 +115,8 @@ describe('(22) Player can bet', function() {
 		});
 
 		it('on 1-18', function() {
-			player.halfTableBetCheck(10, '1 - 18', wheel);
-			expect(player.balance).toEqual(90)
+			player.highLowBetCheck(10, '1 - 18', wheel);
+			expect(player.balance).toEqual(90);
 		});
 
 	});
@@ -136,6 +136,12 @@ describe('Displays winnings after each spin', function() {
 
 	it('when a player did not win', function() {
 		wheel.spin();
+		expect(player.winnings).toEqual(0);
+	});
+
+	it('can reset winnings', function() {
+		player.winnings = 100;
+		player.resetWinnings();
 		expect(player.winnings).toEqual(0);
 	});
 

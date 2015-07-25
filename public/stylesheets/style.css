@@ -6,3 +6,32 @@ body {
 a {
   color: #00B7FF;
 }
+
+#zero {
+  background-color: green;
+}
+
+.number-btn {
+  background-color: red;
+  border-style: solid;
+}
+
+#red-btn {
+  background-color: red;
+}
+
+#black-btn {
+  background-color: black;
+}
+
+.wheel {
+  background-color: green;
+}
+
+.display {
+  outline: black solid thick;
+}
+
+.col-btn {
+  width: 100%;
+}

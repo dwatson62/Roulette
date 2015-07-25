@@ -3,10 +3,11 @@ var wheel;
 beforeEach(function() {
 	wheel = new Wheel();
 });
+
 describe('Returns a number', function() {
 	it('between 0 and 36', function() {
 		wheel.spin();
-		expect(wheel.number >= 0 && wheel.number < 37).toBeTruthy();
+		expect(0 <= wheel.number && wheel.number <= 36).toBeTruthy();
 	});
 });
 
@@ -55,19 +56,19 @@ describe('Returns correct odd/even', function() {
 	});
 });
 
-describe('Returns correct street number', function() {
-	it('when given 1', function() {
-		spyOn(Math, 'random').and.returnValue(0.03);
-		wheel.spin();
-		expect(wheel.streetNumber).toEqual(1);
-	});
-});
-
 describe('Returns correct column number', function() {
 	it('when given 1', function() {
 		spyOn(Math, 'random').and.returnValue(0.03);
 		wheel.spin();
 		expect(wheel.columnNumber).toEqual(1);
+	});
+});
+
+describe('Returns correct dozen number', function() {
+	it('when given 1', function() {
+		spyOn(Math, 'random').and.returnValue(0.03);
+		wheel.spin();
+		expect(wheel.dozenNumber).toEqual(1);
 	});
 });
 

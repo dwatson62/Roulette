@@ -8,7 +8,7 @@ describe('RouletteController', function() {
   }));
 
   it('Player starts with £100', function() {
-    expect(ctrl.playerBalance).toEqual(100)
+    expect(ctrl.playerBalance).toEqual(100);
   });
 
   it('Player can clear current bets', function() {
@@ -29,37 +29,37 @@ describe('RouletteController', function() {
     it('on Red', function() {
       ctrl.colourBet('Red');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(120)
+      expect(ctrl.playerBalance).toEqual(120);
     });
 
     it('on 1', function() {
       ctrl.numberBet('1');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(450)
+      expect(ctrl.playerBalance).toEqual(450);
     });
 
     it('on odd', function() {
       ctrl.oddOrEvenBet('Odd');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(120)
-    });
-
-    it('on a street', function() {
-      ctrl.streetBet('Street 1');
-      ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(120)
+      expect(ctrl.playerBalance).toEqual(120);
     });
 
     it('on a column', function() {
-      ctrl.columnBet('Col1');
+      ctrl.columnBet('Column 1');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(120)
+      expect(ctrl.playerBalance).toEqual(120);
+    });
+
+    it('on a dozen', function() {
+      ctrl.dozenBet('Dozen 1');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(120);
     });
 
     it('on 1-18', function() {
-      ctrl.halfTableBet('1 - 18');
+      ctrl.highLowBet('1 - 18');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(120)
+      expect(ctrl.playerBalance).toEqual(120);
     });
 
   });
@@ -75,19 +75,19 @@ describe('RouletteController', function() {
     it('on even', function() {
       ctrl.oddOrEvenBet('Even');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(120)
+      expect(ctrl.playerBalance).toEqual(120);
     });
 
     it('on black', function() {
       ctrl.colourBet('Black');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(120)
+      expect(ctrl.playerBalance).toEqual(120);
     });
 
     it('on 19-36', function() {
-      ctrl.halfTableBet('19 - 36');
+      ctrl.highLowBet('19 - 36');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(120)
+      expect(ctrl.playerBalance).toEqual(120);
     });
 
   });
@@ -103,37 +103,37 @@ describe('RouletteController', function() {
     it('on 2', function() {
       ctrl.numberBet('2');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(90)
+      expect(ctrl.playerBalance).toEqual(90);
     });
 
     it('on even', function() {
       ctrl.oddOrEvenBet('Even');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(90)
+      expect(ctrl.playerBalance).toEqual(90);
     });
 
     it('on black', function() {
       ctrl.colourBet('Black');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(90)
-    });
-
-    it('on a street', function() {
-      ctrl.streetBet('Street 2');
-      ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(90)
+      expect(ctrl.playerBalance).toEqual(90);
     });
 
     it('on a column', function() {
-      ctrl.columnBet('Col 2');
+      ctrl.columnBet('Column 2');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(90)
+      expect(ctrl.playerBalance).toEqual(90);
+    });
+
+    it('on a dozen', function() {
+      ctrl.dozenBet('Dozen 2');
+      ctrl.spin();
+      expect(ctrl.playerBalance).toEqual(90);
     });
 
     it('on 19-36', function() {
-      ctrl.halfTableBet('19 - 36');
+      ctrl.highLowBet('19 - 36');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(90)
+      expect(ctrl.playerBalance).toEqual(90);
     });
 
   });
@@ -148,21 +148,21 @@ describe('RouletteController', function() {
     it('with the same amount', function() {
       ctrl.amountBet = 10;
       ctrl.oddOrEvenBet('Odd');
-      ctrl.streetBet('Street 1');
-      ctrl.columnBet('Col1');
+      ctrl.columnBet('Column 1');
+      ctrl.dozenBet('Dozen 1');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(160)
+      expect(ctrl.playerBalance).toEqual(160);
     });
 
     it('with different amounts', function() {
       ctrl.amountBet = 10;
       ctrl.oddOrEvenBet('Odd');
       ctrl.amountBet = 20;
-      ctrl.streetBet('Street 1');
+      ctrl.columnBet('Column 1');
       ctrl.amountBet = 5;
-      ctrl.columnBet('Col 1');
+      ctrl.dozenBet('Dozen 1');
       ctrl.spin();
-      expect(ctrl.playerBalance).toEqual(170)
+      expect(ctrl.playerBalance).toEqual(170);
     });
 
   });

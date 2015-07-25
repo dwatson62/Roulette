@@ -1,6 +1,8 @@
 var amountBet = element(by.id('amount-bet'));
 var betBtn = element(by.className('bet-btn'));
 var clearBtn = element(by.id('clear-btn'));
+var columnBtn = element(by.className('column-btn'));
+var dozenBtn = element(by.className('doz-btn'));
 var numberBtn = element(by.className('number-btn'));
 var oddBtn = element(by.id('odd-btn'));
 var oneTo18Btn = element(by.id('1to18-btn'));
@@ -11,7 +13,6 @@ var redBtn = element(by.id('red-btn'));
 var repeatBtn = element(by.id('repeat-btn'));
 var spinBtn = element(by.id('spin-btn'));
 var spinResult = element(by.id('spin-result'));
-var streetBtn = element(by.className('street-btn'));
 var winnings = element(by.id('winnings'));
 
 beforeEach(function(){
@@ -25,7 +26,7 @@ describe('Roulette table', function() {
   });
 
   it('Can spin the wheel without placing a bet', function() {
-    spinBtn.click()
+    spinBtn.click();
     pastSpins.then(function(result) {
       expect(result.length).toBeGreaterThan(0);
     });
@@ -54,7 +55,7 @@ describe('Roulette table', function() {
   });
 
   it('Displays player winnings', function() {
-    expect(winnings.getText()).toContain('Your winnings: £')
+    expect(winnings.getText()).toContain('Your winnings: £');
   });
 
   it('can clear current bets', function() {
@@ -88,9 +89,14 @@ describe('Betting', function() {
     expect(playerBet.getText()).toContain('£1 on Odd');
   });
 
-  it('Can bet on a street (3)', function() {
-    streetBtn.click();
-    expect(playerBet.getText()).toContain('£1 on Street 3');
+  it('Can bet on a column (3)', function() {
+    columnBtn.click();
+    expect(playerBet.getText()).toContain('£1 on Column 3');
+  });
+
+  it('Can bet on a dozen (1)', function() {
+    dozenBtn.click();
+    expect(playerBet.getText()).toContain('£1 on Dozen 1');
   });
 
   it('Can bet on a 1-18', function() {
@@ -102,7 +108,7 @@ describe('Betting', function() {
     betBtn.click();
     oddBtn.click();
     numberBtn.click();
-    streetBtn.click();
+    columnBtn.click();
     expect(amountBet.getText()).toEqual('Total bet £3');
   });
 
@@ -124,7 +130,7 @@ describe('Player cannot', function() {
     expect(numberBtn.isEnabled()).toBe(false);
     expect(redBtn.isEnabled()).toBe(false);
     expect(oddBtn.isEnabled()).toBe(false);
-    expect(streetBtn.isEnabled()).toBe(false);
+    expect(columnBtn.isEnabled()).toBe(false);
   });
 
   xit('Bet more money than they have', function() {
