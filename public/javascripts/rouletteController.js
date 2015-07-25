@@ -12,6 +12,8 @@ roulette.controller('RouletteController', [function() {
   self.totalBet = 0;
   self.winnings = 0;
 
+  $('.ui-widget-content').draggable();
+
   self.disableButton = function() {
     if (rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet)
       { return true; }
