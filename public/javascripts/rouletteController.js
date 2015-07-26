@@ -12,9 +12,17 @@ roulette.controller('RouletteController', [function() {
   self.totalBet = 0;
   self.winnings = 0;
 
+  self.blackOrRedBtn = function(number, line) {
+    var redNumbers = [[3, 9, 12, 18, 21, 27, 30, 36], [5, 14, 23, 32], [1, 7, 16, 19, 25, 34]];
+    for (i = 0; i < redNumbers[line].length; i ++) {
+      if (redNumbers[line][i] == number) { return 'rednumber-btn'; }
+    }
+    return 'blacknumber-btn';
+  };
+
   self.disableButton = function() {
-    if (rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet)
-      { return true; }
+    if (self.amountBet === 0 || self.playerBalance < self.amountBet) { return true; }
+    return false;
   };
 
   self.placeBet = function(amount) {
