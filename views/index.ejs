@@ -2,8 +2,8 @@
 <html ng-app='Roulette'>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src='bower_components/angular/angular.js'></script>
     <script src='bower_components/jquery/dist/jquery.js'></script>
     <script src='bower_components/jquery-ui/jquery-ui.js'></script>
@@ -11,13 +11,17 @@
     <script src='/javascripts/wheel.js'></script>
     <script src='/javascripts/angularApp.js'></script>
     <script src='/javascripts/RouletteController.js'></script>
+    <script src='/javascripts/jqueryBetting.js'></script>
   </head>
   <body ng-controller='RouletteController as rltCtrl'><center>
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <div class='wheel'><% include newboard %></div></div>
-        <div class="col-md-4"><% include display %><% include spinHistory %></div>
+          <br>
+          <div class='wheel'><% include table %></div>
+          <% include spinHistory %>
+        </div>
+        <div class="col-md-4"><% include display %></div>
       </div>
     </div>
   </center>

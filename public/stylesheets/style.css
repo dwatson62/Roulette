@@ -1,13 +1,18 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("http://www.socialslurp.co.uk/wp-content/uploads/2014/05/Roulette6.jpg");
+}
+
+.container {
+
 }
 
 a {
   color: #00B7FF;
 }
 
-#zero {
+.zero-btn {
   text-align: center;
   width: 30px;
   font-size: 22px;
@@ -55,10 +60,13 @@ a {
 
 .wheel {
   background-color: green;
+  outline: black solid thick;
 }
 
 .display {
+  background-color: green;
   outline: black solid thick;
+  font-size: 18px;
 }
 
 .column-btn {
@@ -99,11 +107,28 @@ a {
   color: white;
 }
 
+.history {
+  background-color: green;
+  outline: black solid thick;
+}
+
 td {
   text-align: center;
 }
 
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.player-btns {
+  font-size: 16px;
+  background-color: transparent;
+  /*border: none;*/
+  width: 70px;
+  color: black;
+}
+
+li {
+  font-size: 16px;
+}
+
+.tg  {border-collapse:collapse;border-spacing:0; }
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal; border-color: white;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal; border-color: white;}
 #no-border{border-style:none;}

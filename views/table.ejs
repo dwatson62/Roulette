@@ -1,7 +1,7 @@
 <br>
 <table class="tg">
   <tr>
-    <th class="tg-031e" rowspan="3"><div class='number-btn' id='zero' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(0)'>0</div></th>
+    <th class="tg-031e" rowspan="3"><button class='zero-btn' id='0' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(0)'>0</button></th>
     <% for (i = 3; i < 37; i += 3) { %>
         <th class="tg-031e">
           <% if (i == 6 || i == 15 || i == 24 || i == 33) { %>
@@ -11,7 +11,7 @@
             <% } %>
         </th>
       <% } %>
-      <td class="tg-031e"><div class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 3")'>2 to 1</div></td>
+      <td class="tg-031e"><button class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 3")'>2 to 1</button></td>
   </tr>
   <tr>
     <% for (i = 2; i < 37; i += 3) { %>
@@ -23,7 +23,7 @@
           <% } %>
         </th>
       <% } %>
-      <td class="tg-031e"><div class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 2")'>2 to 1</div></td>
+      <td class="tg-031e"><button class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 2")'>2 to 1</button></td>
   </tr>
   <tr>
     <% for (i = 1; i < 37; i += 3) { %>
@@ -35,7 +35,7 @@
           <% } %>
         </th>
       <% } %>
-      <td class="tg-031e"><div class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 1")'>2 to 1</div></td>
+      <td class="tg-031e"><button class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 1")'>2 to 1</button></td>
   </tr>
   <tr>
     <td class="tg-031e" rowspan="2" id='no-border'></td>
