@@ -11,19 +11,27 @@ Currently players can bet multiple amounts on different on different numbers, co
 
 Most of the game functionality is in place. It is missing the functionality for some of the inside bets, such as split bets, corner bets, and line bets.
 
-I have used jquery-ui to handle the dragging and dropping of chips. The game becomes rather laggy at times. Strangely enough the column bets do not work for dragging, but can still bet by clicking.
+I have used jquery-ui to handle the dragging and dropping of chips. The game becomes rather laggy at times. Strangely enough the column bets do not work for dragging, but can still bet on them by clicking.
 
 ## Installation
 
-- Clone down to your computer
-- Run npm start (this will download all npm and bower packages, and launch the server)
-- Visit http://localhost:3000
+From the command line:
 
-## Tests
+- ``` git clone https://github.com/dwatson62/roulette ```
+- ``` npm start ``` (this will download all npm and bower packages, and launch the server)
+- Visit [http://localhost:3000](http://localhost:3000)
 
-- Clone down to your computer
-- Run npm test (this will download all npm and bower packages, and run the Jasmine/Karma tests)
-- To run the protractor tests, in separate windows run npm start, webdriver-manager start, protractor start spec/e2e/conf.js
+#### Tests
+
+For unit tests:
+
+- ``` npm test ```
+
+For feature tests, in separate terminal windows
+
+- ``` npm start ```
+- ``` webdriver-manager update ``` then ``` webdriver-manager start ```
+- ``` protractor spec/e2e/conf.js ```
 
 ![Roulette](http://gamesofroulette.com/img/pictures/roulette-rules/european-roulette-table.gif)
 
@@ -39,6 +47,5 @@ I have used jquery-ui to handle the dragging and dropping of chips. The game bec
 ## Job List
 
 - [ ] Setup Coveralls
-- [ ] Setup travis to run protractor tests
 - [ ] End the game once player balance gets to £0
 - [ ] Add functionality for other inside bets

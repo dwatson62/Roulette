@@ -1,9 +1,9 @@
 var amountBet = element(by.id('amount-bet'));
-var betBtn = element(by.className('bet-btn'));
+var betBtn = element(by.id('£1bet-btn'));
 var clearBtn = element(by.id('clear-btn'));
 var columnBtn = element(by.className('column-btn'));
 var dozenBtn = element(by.className('doz-btn'));
-var numberBtn = element(by.className('number-btn'));
+var numberBtn = element(by.className('blacknumber-btn'));
 var oddBtn = element(by.id('odd-btn'));
 var oneTo18Btn = element(by.id('1to18-btn'));
 var pastSpins = element.all(by.repeater('pastSpins in rltCtrl.pastSpins'));
@@ -33,7 +33,7 @@ describe('Roulette table', function() {
   });
 
   it('Displays player balance', function() {
-    expect(playerBalance.getText()).toEqual('£100');
+    expect(playerBalance.getText()).toEqual('Your balance: £100');
   });
 
   it('Dispays previous spin history', function() {
@@ -50,8 +50,8 @@ describe('Roulette table', function() {
     numberBtn.click();
     spinBtn.click();
     repeatBtn.click();
-    expect(playerBet.getText()).toContain('£1 on 0');
-    expect(amountBet.getText()).toEqual('Total bet £1');
+    expect(playerBet.getText()).toContain('£1 on 6');
+    expect(amountBet.getText()).toEqual('Total bet: £1');
   });
 
   it('Displays player winnings', function() {
@@ -63,7 +63,7 @@ describe('Roulette table', function() {
     numberBtn.click();
     clearBtn.click();
     expect(playerBet.getText()).toEqual([]);
-    expect(amountBet.getText()).toEqual('Total bet £0');
+    expect(amountBet.getText()).toEqual('Total bet: £0');
   });
 
 });
@@ -74,9 +74,9 @@ describe('Betting', function() {
     betBtn.click();
   });
 
-  it('Can bet on a number (0)', function() {
+  it('Can bet on a number (6)', function() {
     numberBtn.click();
-    expect(playerBet.getText()).toContain('£1 on 0');
+    expect(playerBet.getText()).toContain('£1 on 6');
   });
 
   it('Can bet on a colour', function() {
@@ -109,7 +109,7 @@ describe('Betting', function() {
     oddBtn.click();
     numberBtn.click();
     columnBtn.click();
-    expect(amountBet.getText()).toEqual('Total bet £3');
+    expect(amountBet.getText()).toEqual('Total bet: £3');
   });
 
 });
@@ -119,7 +119,7 @@ describe('Player balance', function() {
   it('is deducted for each bet', function() {
     betBtn.click();
     numberBtn.click();
-    expect(playerBalance.getText()).toEqual('£99');
+    expect(playerBalance.getText()).toEqual('Your balance: £99');
   });
 
 });
