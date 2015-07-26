@@ -7,9 +7,11 @@ Roulette
 
 This is my personal project to practice MEAN JS and CSS styling. It is a game replicating European style Roulette using play money.
 
-Currently players can bet multiple amounts on different on different numbers, colours, odd/even, columns, high/low and dozens. Can also view past spins for that particular session, and repeat the previous bet.
+Currently players can bet multiple amounts on different on different numbers, colours, odd/even, columns, high/low and dozens. Can also view past spins for that particular session, and repeat the previous bet. Javascript setInterval() is being used to spin the wheel every 15 seconds, with no more bets being allowed for the final 5.
 
-Most of the game functionality is in pace. It is missing the functionality for some of the inside bets, such as split bets, corner bets, and line bets. However, these will be difficult to implement without styling and displaying the board properly.
+Most of the game functionality is in pace. It is missing the functionality for some of the inside bets, such as split bets, corner bets, and line bets.
+
+I have used jquery-ui to handle the dragging and dropping of chips. The game becomes rather laggy at times. Weird bugs, can only bet £1 on Zero, and the only column bet working is Column 1.
 
 ## Installation
 
@@ -40,7 +42,6 @@ Most of the game functionality is in pace. It is missing the functionality for s
 - [ ] Setup travis to run protractor tests
 - [ ] End the game once player balance gets to £0
 - [ ] CSS Styling
-- [ ] Set the spin() to run every 10 seconds
 - [ ] Add functionality for other inside bets
 
 ## Collaborators

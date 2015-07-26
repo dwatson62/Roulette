@@ -1,17 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4"><img src='http://gamblingplex.co.uk/wp-content/uploads/2014/01/roulette_wheel.jpg' style='height:230px'></div>
-    <div class="col-md-4">
-      <div class='display'>
-        <h3><p>Place your bets</p></h3>
-        <div id='player-balance' ng-model='rltCtrl.playerBalance'> £{{rltCtrl.playerBalance}}</div>
-        <div id='amount-bet' ng-model='rltCtrl.totalBet'>Total bet £{{rltCtrl.totalBet}}</div>
-        <div id='previous-result' ng-model="rltCtrl.number">Last number: {{rltCtrl.number}}</div>
-        <div id='winnings' ng-model='rltCtrl.winnings'>Your winnings: £{{rltCtrl.winnings}}</div>
-        Your bets:<div id='player-bet' ng-repeat='bets in rltCtrl.bet'><li> £{{bets.amount}} on {{bets.bet}} </li></div>
-      </div>
-      <br>
-    </div>
-    <div class="col-md-4"></div>
-  </div>
+<div class='display'>
+  <h3><p><div id='display-msg'>Place your bets...</div><div id='timer'></div></p></h3>
+  <div id='£1bet-btn' class="chip" ng-disabled="rltCtrl.playerBalance < 1" ng-click='rltCtrl.placeBet(1)'>£1<img src='http://vignette3.wikia.nocookie.net/mafiawars/images/c/c8/Standard_75x75_collect_pokerchip_red_01.gif/revision/latest?cb=20090626014516' height='40'></div>
+<div id='£5bet-btn' class="chip" ng-disabled="rltCtrl.playerBalance < 1" ng-click='rltCtrl.placeBet(5)'>£5<img src='http://vignette3.wikia.nocookie.net/mafiawars/images/c/c8/Standard_75x75_collect_pokerchip_red_01.gif/revision/latest?cb=20090626014516' height='40'></div>
+<div id='£10bet-btn' class="chip" ng-disabled="rltCtrl.playerBalance < 1" ng-click='rltCtrl.placeBet(10)'>£10<img src='http://vignette3.wikia.nocookie.net/mafiawars/images/c/c8/Standard_75x75_collect_pokerchip_red_01.gif/revision/latest?cb=20090626014516' height='40'></div>
+<div id='£20bet-btn' class="chip" ng-disabled="rltCtrl.playerBalance < 1" ng-click='rltCtrl.placeBet(20)'>£20<img src='http://vignette3.wikia.nocookie.net/mafiawars/images/c/c8/Standard_75x75_collect_pokerchip_red_01.gif/revision/latest?cb=20090626014516' height='40'></div>
+  <div id='player-balance' ng-model='rltCtrl.playerBalance'> Your balance: £{{rltCtrl.playerBalance}}</div>
+  <div id='amount-bet' ng-model='rltCtrl.totalBet'>Total bet: £{{rltCtrl.totalBet}}</div>
+  <div id='previous-result' ng-model="rltCtrl.number">Last number: {{rltCtrl.number}}</div>
+  <div id='winnings' ng-model='rltCtrl.winnings'>Your winnings: £{{rltCtrl.winnings}}</div>
+  Your bets:<div id='player-bet' ng-repeat='bets in rltCtrl.bet'><li> £{{bets.amount}} on {{bets.bet}} </li></div>
+  <br>
+  <br>
+  <button id='repeat-btn' ng-click='rltCtrl.repeatBet()'>Repeat</button>
+<button id='clear-btn' ng-click='rltCtrl.clearBets()'>Clear Bets</button>
+<button id='spin-btn' ng-click='rltCtrl.spin()'>Spin!</button>
+<br>
+<br>
 </div>

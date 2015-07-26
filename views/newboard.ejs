@@ -1,34 +1,41 @@
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-#no-border{border-style:none;}
-</style>
+<br>
 <table class="tg">
   <tr>
-    <th class="tg-031e" rowspan="3"><button class='number-btn' id='zero' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(0)'>0</button></th>
+    <th class="tg-031e" rowspan="3"><div class='number-btn' id='zero' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(0)'>0</div></th>
     <% for (i = 3; i < 37; i += 3) { %>
         <th class="tg-031e">
-          <button class='number-btn' id='<%= i %>' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+          <% if (i == 6 || i == 15 || i == 24 || i == 33) { %>
+            <button class='blacknumber-btn' id='<%= i %>' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+          <% } else { %>
+            <button class='rednumber-btn' id='<%= i %>' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+            <% } %>
         </th>
       <% } %>
-      <td class="tg-031e"><button class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 3")'>2 to 1</button></td>
+      <td class="tg-031e"><div class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 3")'>2 to 1</div></td>
   </tr>
   <tr>
     <% for (i = 2; i < 37; i += 3) { %>
         <th class="tg-031e">
-          <button class='number-btn' id='<%= i %>' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+          <% if (i == 5 || i == 14 || i == 23 || i == 32) { %>
+            <button class='rednumber-btn' id='<%= i %>' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+          <% } else { %>
+            <button class='blacknumber-btn' id='<%= i %>' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+          <% } %>
         </th>
       <% } %>
-      <td class="tg-031e"><button class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 2")'>2 to 1</button></td>
+      <td class="tg-031e"><div class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 2")'>2 to 1</div></td>
   </tr>
   <tr>
     <% for (i = 1; i < 37; i += 3) { %>
         <th class="tg-031e">
-          <button class='number-btn' id='<%= i %>' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+          <% if (i == 1 || i == 7 || i == 16 || i == 19 || i == 25 || i == 34) { %>
+            <button class='rednumber-btn' id='<%= i %>' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+          <% } else { %>
+            <button class='blacknumber-btn' id='<%= i %>' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.numberBet(<%= i %>)'><%= i %></button>
+          <% } %>
         </th>
       <% } %>
-      <td class="tg-031e"><button class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 1")'>2 to 1</button></td>
+      <td class="tg-031e"><div class='column-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.columnBet("Column 1")'>2 to 1</div></td>
   </tr>
   <tr>
     <td class="tg-031e" rowspan="2" id='no-border'></td>
@@ -38,11 +45,12 @@
     <td class="tg-031e" rowspan="2" id='no-border'></td>
   </tr>
   <tr>
-    <td class="tg-031e" colspan="2"><button id='1to18-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.highLowBet("1 - 18")'>1 to 18</button></td>
-    <td class="tg-031e" colspan="2"><button id='even-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.oddOrEvenBet("Even")'>EVEN</button></td>
+    <td class="tg-031e" colspan="2"><button class='highlow-btn' id='1to18-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.highLowBet("1 - 18")'>1 to 18</button></td>
+    <td class="tg-031e" colspan="2"><button class='oddeven-btn' id='even-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.oddOrEvenBet("Even")'>EVEN</button></td>
     <td class="tg-031e" colspan="2"><button id='red-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.colourBet("Red")'>RED</button></td>
     <td class="tg-031e" colspan="2"><button id='black-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.colourBet("Black")'>BLACK</button></td>
-    <td class="tg-031e" colspan="2"><button id='odd-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.oddOrEvenBet("Odd")'>ODD</button></td>
-    <td class="tg-031e" colspan="2"><button id='19to36-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.highLowBet("19 - 36")'>19 to 36</button></td>
+    <td class="tg-031e" colspan="2"><button class='oddeven-btn' id='odd-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.oddOrEvenBet("Odd")'>ODD</button></td>
+    <td class="tg-031e" colspan="2"><button class='highlow-btn' id='19to36-btn' ng-disabled="rltCtrl.amountBet === 0 || rltCtrl.playerBalance < rltCtrl.amountBet" ng-click='rltCtrl.highLowBet("19 - 36")'>19 to 36</button></td>
   </tr>
 </table>
+<br>

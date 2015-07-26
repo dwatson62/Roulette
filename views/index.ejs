@@ -13,13 +13,11 @@
     <script src='/javascripts/RouletteController.js'></script>
   </head>
   <body ng-controller='RouletteController as rltCtrl'><center>
-    <h1><%= title %></h1>
-    <% include display %>
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <div class='wheel'><% include newboard %></div><% include playerDashboard %></div>
-        <div class="col-md-4"><% include spinHistory %></div>
+          <div class='wheel'><% include newboard %></div></div>
+        <div class="col-md-4"><% include display %><% include spinHistory %></div>
       </div>
     </div>
   </center>

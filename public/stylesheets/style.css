@@ -8,20 +8,49 @@ a {
 }
 
 #zero {
+  text-align: center;
+  width: 30px;
+  font-size: 22px;
   background-color: green;
+  color: white;
+  background-color: transparent;
+  border: none;
 }
 
-.number-btn {
+.rednumber-btn {
+  font-size: 20px;
+  width: 32px;
   background-color: red;
-  border-style: solid;
+  border: none;
+  color: white;
+  border-radius: 10px;
+}
+
+.blacknumber-btn {
+  font-size: 20px;
+  width: 32px;
+  background-color: black;
+  border: none;
+  color: white;
+  border-radius: 10px;
 }
 
 #red-btn {
+  font-size: 18px;
+  width: 70px;
   background-color: red;
+  color: white;
+  border-style: none;
+  border-radius: 10px;
 }
 
 #black-btn {
+  font-size: 18px;
+  width: 70px;
   background-color: black;
+  color: white;
+  border-style: none;
+  border-radius: 10px;
 }
 
 .wheel {
@@ -33,6 +62,10 @@ a {
 }
 
 .column-btn {
+  font-size: 18px;
+  border-style: none;
+  color: white;
+  background-color: green;
   height: 5px;
   text-align: center;
   vertical-align: middle;
@@ -42,14 +75,35 @@ a {
   -o-transform: rotate(-90deg);
 }
 
-.doz-btn {
-  width: 80px;
+.oddeven-btn {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  width: 70px;
+  color: white;
 }
 
-table {
-  border: 1px;
+.highlow-btn {
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  width: 70px;
+  color: white;
+}
+
+.doz-btn {
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  width: 130px;
+  color: white;
 }
 
 td {
   text-align: center;
 }
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+#no-border{border-style:none;}
