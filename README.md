@@ -9,9 +9,9 @@ This is my personal project to practice MEAN JS and CSS styling. It is a game re
 
 Currently players can bet multiple amounts on different on different numbers, colours, odd/even, columns, high/low and dozens. Can also view past spins for that particular session, and repeat the previous bet. Javascript setInterval() is being used to spin the wheel every 15 seconds, with no more bets being allowed for the final 5.
 
-Most of the game functionality is in pace. It is missing the functionality for some of the inside bets, such as split bets, corner bets, and line bets.
+Most of the game functionality is in place. It is missing the functionality for some of the inside bets, such as split bets, corner bets, and line bets.
 
-I have used jquery-ui to handle the dragging and dropping of chips. The game becomes rather laggy at times. Weird bugs, can only bet £1 on Zero, and the only column bet working is Column 1.
+I have used jquery-ui to handle the dragging and dropping of chips. The game becomes rather laggy at times. Strangely enough the column bets do not work for dragging, but can still bet by clicking.
 
 ## Installation
 
@@ -41,9 +41,4 @@ I have used jquery-ui to handle the dragging and dropping of chips. The game bec
 - [ ] Setup Coveralls
 - [ ] Setup travis to run protractor tests
 - [ ] End the game once player balance gets to £0
-- [ ] CSS Styling
 - [ ] Add functionality for other inside bets
-
-## Collaborators
-
-- Daryl (http://www.github.com/dwatson62)
