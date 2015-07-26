@@ -1,8 +1,8 @@
-roulette.controller('RouletteController', [function() {
+roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', function(PlayerFactory, WheelFactory) {
 
   var self = this;
-  var player = new Player();
-  var wheel = new Wheel();
+  var player = new PlayerFactory();
+  var wheel = new WheelFactory();
 
   self.amountBet = 0;
   self.bet = [];

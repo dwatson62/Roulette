@@ -179,8 +179,8 @@ describe('RouletteController', function() {
     });
 
     it('when a player did not win', function() {
-      wheel.spin();
-      expect(player.winnings).toEqual(0);
+      ctrl.spin();
+      expect(ctrl.winnings).toEqual(0);
     });
   });
 
