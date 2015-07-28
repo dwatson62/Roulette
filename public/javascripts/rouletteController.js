@@ -15,7 +15,7 @@ roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', func
   self.blackOrRedBtn = function(number, line) {
     var redNumbers = [[3, 9, 12, 18, 21, 27, 30, 36], [5, 14, 23, 32], [1, 7, 16, 19, 25, 34]];
     for (i = 0; i < redNumbers[line].length; i ++) {
-      if (redNumbers[line][i] == number) { return 'rednumber-btn'; }
+      if (redNumbers[line][i] === number) { return 'rednumber-btn'; }
     }
     return 'blacknumber-btn';
   };
@@ -105,14 +105,14 @@ roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', func
       player.colourBetCheck(amount, bet, wheel);
       player.numberBetCheck(amount, bet, wheel);
       player.oddOrEvenBetCheck(amount, bet, wheel);
-      if (typeof(bet) == 'string') { self.checkOutsideBets(amount, bet); }
+      if (typeof(bet) === 'string') { self.checkOutsideBets(amount, bet); }
     }
   };
 
   self.checkOutsideBets = function(amount, bet) {
-    if (bet.substring(0, 6) == 'Column') {
+    if (bet.substring(0, 6) === 'Column') {
       player.columnBetCheck(amount, bet, wheel);
-    } else if (bet.substring(0, 5) == 'Dozen') {
+    } else if (bet.substring(0, 5) === 'Dozen') {
       player.dozenBetCheck(amount, bet, wheel);
     } else {
       player.highLowBetCheck(amount, bet, wheel);

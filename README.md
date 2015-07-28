@@ -5,13 +5,13 @@ Roulette
 
 ## Synopsis
 
-This is my personal project to practice MEAN JS and CSS styling. It is a game replicating European style Roulette using play money.
+This is my personal project to practice Angular and CSS styling. It is a game replicating European style Roulette using play money.
 
 Currently players can bet multiple amounts on different on different numbers, colours, odd/even, columns, high/low and dozens. Can also view past spins for that particular session, and repeat the previous bet. Javascript setInterval() is being used to spin the wheel every 15 seconds, with no more bets being allowed for the final 5.
 
 Most of the game functionality is in place. It is missing the functionality for some of the inside bets, such as split bets, corner bets, and line bets.
 
-I have used jquery-ui to handle the dragging and dropping of chips. The game becomes rather laggy at times. Strangely enough the column bets do not work for dragging, but can still bet on them by clicking.
+I have used jquery-ui to handle the dragging and dropping of chips. The game becomes rather laggy at times. Strangely enough the column bets do not work for dragging, but can still be bet on by clicking.
 
 ## Installation
 
