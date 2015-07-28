@@ -3,6 +3,8 @@ Roulette
 
 [![Build Status](https://travis-ci.org/dwatson62/roulette.svg?branch=master)](https://travis-ci.org/dwatson62/roulette) [![Code Climate](https://codeclimate.com/github/dwatson62/roulette/badges/gpa.svg)](https://codeclimate.com/github/dwatson62/roulette)
 
+![Roulette](https://github.com/dwatson62/roulette/blob/master/public/images/screenshot.png?raw=true)
+
 ## Synopsis
 
 This is my personal project to practice Angular and CSS styling. It is a game replicating European style Roulette using play money.
@@ -33,7 +35,7 @@ For feature tests, in separate terminal windows
 - ``` webdriver-manager update ``` then ``` webdriver-manager start ```
 - ``` protractor spec/e2e/conf.js ```
 
-![Roulette](http://gamesofroulette.com/img/pictures/roulette-rules/european-roulette-table.gif)
+Typeos of bets:
 
 ![Roulette bets](http://bestroulette.net/wp-content/uploads/2009/12/types-of-roulette-bets.gif)
 
