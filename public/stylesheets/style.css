@@ -124,6 +124,10 @@ td {
   color: black;
 }
 
+.inactive {
+  opacity: 0.4;
+}
+
 li {
   font-size: 16px;
 }

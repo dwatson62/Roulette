@@ -6,14 +6,15 @@ roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', '$in
 
   self.amountBet = 0;
   self.bet = [];
+  self.inactive = [false, false, false, false]
+  self.message = 'Place your bets...'
   self.pastSpins = [];
   self.playerBalance = player.balance;
   self.previousBet = [];
+  self.timer = 10;
   self.totalBet = 0;
   self.winnings = 0;
 
-  self.timer = 10;
-  self.message = 'Place your bets...'
 
   $interval(timeChange, 1000)
 
@@ -51,8 +52,10 @@ roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', '$in
     return false;
   };
 
-  self.placeBet = function(amount) {
+  self.placeBet = function(amount, index) {
     self.amountBet = amount;
+    for (x in self.inactive) { self.inactive[x] = true; }
+    self.inactive[index] = false;
   };
 
   self.numberBet = function(number) {
@@ -118,6 +121,7 @@ roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', '$in
     self.number = wheel.number + " " + wheel.colour;
     $('#' + wheel.number).fadeOut(2000);
     $('#' + wheel.number).fadeIn(2000);
+    for (x in self.inactive) { self.inactive[x] = false; }
   };
 
   self.spinHistory = function() {
