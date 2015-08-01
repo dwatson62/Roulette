@@ -5,7 +5,6 @@ var pastSpins = element.all(by.repeater('pastSpins in rltCtrl.pastSpins'));
 var playerBalance = element(by.id('player-balance'));
 var playerBet = element.all(by.repeater('bets in rltCtrl.bet'));
 var repeatBtn = element(by.id('repeat-btn'));
-var spinBtn = element(by.id('spin-btn'));
 var timer = element(by.id('timer'));
 var winnings = element(by.id('winnings'));
 
@@ -23,8 +22,7 @@ describe('Roulette table', function() {
     expect(timer.getText()).toEqual('10')
   })
 
-  it('Can spin the wheel without placing a bet', function() {
-    spinBtn.click();
+  it('The wheel spins even without placing a bet', function() {
     pastSpins.then(function(result) {
       expect(result.length).toBeGreaterThan(0);
     });
@@ -37,7 +35,6 @@ describe('Roulette table', function() {
   it('Dispays previous spin history', function() {
     betBtn.click();
     numberBtn.click();
-    spinBtn.click();
     pastSpins.then(function(result) {
       expect(result.length).toBeGreaterThan(0);
     });
@@ -46,7 +43,6 @@ describe('Roulette table', function() {
   it('Can repeat the previous bet', function() {
     betBtn.click();
     numberBtn.click();
-    spinBtn.click();
     repeatBtn.click();
     expect(playerBet.getText()).toContain('£1 on 6');
     expect(amountBet.getText()).toEqual('Total bet: £1');

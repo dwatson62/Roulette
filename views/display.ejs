@@ -1,9 +1,9 @@
 <div class='display'>
   <h3><p><div id='display-msg' ng-model='rltCtrl.message'>{{rltCtrl.message}}</div><div id='timer' ng-model='rltCtrl.timer' ng-hide='rltCtrl.hideTimer()'> {{rltCtrl.timer}}</div></p></h3>
-  <div id='£1bet-btn' ng-class="{'inactive': rltCtrl.inactive[0] == true}" ng-disabled="rltCtrl.playerBalance < 1" ng-click='rltCtrl.placeBet(1, 0)'>£1<img src='http://vignette3.wikia.nocookie.net/mafiawars/images/c/c8/Standard_75x75_collect_pokerchip_red_01.gif/revision/latest?cb=20090626014516' height='40'></div>
-  <div id='£5bet-btn' ng-class="{'inactive': rltCtrl.inactive[1] == true}" ng-disabled="rltCtrl.playerBalance < 5" ng-click='rltCtrl.placeBet(5, 1)'>£5<img src='http://vignette3.wikia.nocookie.net/mafiawars/images/c/c8/Standard_75x75_collect_pokerchip_red_01.gif/revision/latest?cb=20090626014516' height='40'></div>
-  <div id='£10bet-btn' ng-class="{'inactive': rltCtrl.inactive[2] == true}" ng-disabled="rltCtrl.playerBalance < 10" ng-click='rltCtrl.placeBet(10, 2)'>£10<img src='http://vignette3.wikia.nocookie.net/mafiawars/images/c/c8/Standard_75x75_collect_pokerchip_red_01.gif/revision/latest?cb=20090626014516' height='40'></div>
-  <div id='£20bet-btn' ng-class="{'inactive': rltCtrl.inactive[3] == true}" ng-disabled="rltCtrl.playerBalance < 20" ng-click='rltCtrl.placeBet(20, 3)'>£20<img src='http://vignette3.wikia.nocookie.net/mafiawars/images/c/c8/Standard_75x75_collect_pokerchip_red_01.gif/revision/latest?cb=20090626014516' height='40'></div>
+  <div id='£1bet-btn' ng-class="{'inactive': rltCtrl.inactive[0]}" ng-disabled="rltCtrl.playerBalance < 1" ng-click='rltCtrl.placeBet(1, 0)'>£1<img src='/images/chip.gif' height='40'></div>
+  <div id='£5bet-btn' ng-class="{'inactive': rltCtrl.inactive[1]}" ng-disabled="rltCtrl.playerBalance < 5" ng-click='rltCtrl.placeBet(5, 1)'>£5<img src='/images/chip.gif' height='40'></div>
+  <div id='£10bet-btn' ng-class="{'inactive': rltCtrl.inactive[2]}" ng-disabled="rltCtrl.playerBalance < 10" ng-click='rltCtrl.placeBet(10, 2)'>£10<img src='/images/chip.gif' height='40'></div>
+  <div id='£20bet-btn' ng-class="{'inactive': rltCtrl.inactive[3]}" ng-disabled="rltCtrl.playerBalance < 20" ng-click='rltCtrl.placeBet(20, 3)'>£20<img src='/images/chip.gif' height='40'></div>
   <div id='player-balance' ng-model='rltCtrl.playerBalance'> Your balance: £{{rltCtrl.playerBalance}}</div>
   <div id='amount-bet' ng-model='rltCtrl.totalBet'>Total bet: £{{rltCtrl.totalBet}}</div>
   <div id='previous-result' ng-model="rltCtrl.number">Last number: {{rltCtrl.number}}</div>
@@ -13,7 +13,6 @@
   <br>
   <button class='player-btns' id='repeat-btn' ng-click='rltCtrl.repeatBet()'>Repeat</button>
   <button class='player-btns' id='clear-btn' ng-click='rltCtrl.clearBets()'>Clear Bets</button>
-  <button class='player-btns' id='spin-btn' ng-click='rltCtrl.spin()'>Spin!</button>
   <br>
   <br>
 </div>
