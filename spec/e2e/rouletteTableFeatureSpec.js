@@ -22,7 +22,7 @@ describe('Roulette table', function() {
     expect(timer.getText()).toEqual('10')
   })
 
-  it('The wheel spins even without placing a bet', function() {
+  xit('The wheel spins even without placing a bet', function() {
     pastSpins.then(function(result) {
       expect(result.length).toBeGreaterThan(0);
     });
@@ -32,7 +32,7 @@ describe('Roulette table', function() {
     expect(playerBalance.getText()).toEqual('Your balance: £100');
   });
 
-  it('Dispays previous spin history', function() {
+  xit('Dispays previous spin history', function() {
     betBtn.click();
     numberBtn.click();
     pastSpins.then(function(result) {
@@ -40,7 +40,7 @@ describe('Roulette table', function() {
     });
   });
 
-  it('Can repeat the previous bet', function() {
+  xit('Can repeat the previous bet', function() {
     betBtn.click();
     numberBtn.click();
     repeatBtn.click();
