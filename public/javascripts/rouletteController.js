@@ -1,4 +1,4 @@
-roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', function(PlayerFactory, WheelFactory) {
+roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', '$interval', function(PlayerFactory, WheelFactory, $interval) {
 
   var self = this;
   var player = new PlayerFactory();
@@ -12,6 +12,31 @@ roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', func
   self.totalBet = 0;
   self.winnings = 0;
 
+  self.timer = 10;
+  self.message = 'Place your bets...'
+
+  $interval(timeChange, 1000)
+
+  function timeChange() {
+    self.timer --;
+    if (self.timer == 0) {
+      self.message = 'No more bets please'
+    }
+    if (self.timer == -5) {
+      self.spin();
+      self.message = wheel.number + " " + wheel.colour;
+    }
+    if (self.timer == -10) {
+      self.timer = 10
+      self.message = 'Place your bets...'
+    }
+  };
+
+  self.hideTimer = function() {
+    if (self.timer < 1) { return true; }
+    return false;
+  }
+
   self.blackOrRedBtn = function(number, line) {
     var redNumbers = [[3, 9, 12, 18, 21, 27, 30, 36], [5, 14, 23, 32], [1, 7, 16, 19, 25, 34]];
     for (i = 0; i < redNumbers[line].length; i ++) {
@@ -21,6 +46,7 @@ roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', func
   };
 
   self.disableButton = function() {
+    if (self.timer < 0) { return true; }
     if (self.amountBet === 0 || self.playerBalance < self.amountBet) { return true; }
     return false;
   };
