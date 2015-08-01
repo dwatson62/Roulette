@@ -6,30 +6,37 @@ roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', '$in
 
   self.amountBet = 0;
   self.bet = [];
-  self.inactive = [false, false, false, false]
-  self.message = 'Place your bets...'
+  self.inactiveChips = [false, false, false, false]
   self.pastSpins = [];
   self.playerBalance = player.balance;
   self.previousBet = [];
-  self.timer = 10;
   self.totalBet = 0;
   self.winnings = 0;
 
+  self.timer = 10;
+  self.message = 'Place your bets... ' + self.timer;
 
   $interval(timeChange, 1000)
 
   function timeChange() {
     self.timer --;
+    if (self.timer > 0) { self.message = 'Place your bets... ' + self.timer; }
     if (self.timer == 0) {
       self.message = 'No more bets please'
+      self.chipButtons(true);
     }
+
+    if (self.timer == -3) { $('#display-msg').fadeTo( "slow", 0); }
+
     if (self.timer == -5) {
       self.spin();
       self.message = wheel.number + " " + wheel.colour;
+      $('#display-msg').fadeTo( "slow", 1);
     }
     if (self.timer == -10) {
       self.timer = 10
-      self.message = 'Place your bets...'
+      self.message = 'Place your bets... ' + self.timer
+      self.chipButtons(false);
     }
   };
 
@@ -46,6 +53,10 @@ roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', '$in
     return 'blacknumber-btn';
   };
 
+  self.chipButtons = function(booleanValue) {
+    for (x in self.inactiveChips) { self.inactiveChips[x] = booleanValue; }
+  }
+
   self.disableButton = function() {
     if (self.timer < 0) { return true; }
     if (self.amountBet === 0 || self.playerBalance < self.amountBet) { return true; }
@@ -54,8 +65,8 @@ roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', '$in
 
   self.placeBet = function(amount, index) {
     self.amountBet = amount;
-    for (x in self.inactive) { self.inactive[x] = true; }
-    self.inactive[index] = false;
+    self.chipButtons(true);
+    self.inactiveChips[index] = false;
   };
 
   self.numberBet = function(number) {
@@ -121,7 +132,6 @@ roulette.controller('RouletteController', ['PlayerFactory', 'WheelFactory', '$in
     self.number = wheel.number + " " + wheel.colour;
     $('#' + wheel.number).fadeOut(2000);
     $('#' + wheel.number).fadeIn(2000);
-    for (x in self.inactive) { self.inactive[x] = false; }
   };
 
   self.spinHistory = function() {

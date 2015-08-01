@@ -5,7 +5,7 @@ var pastSpins = element.all(by.repeater('pastSpins in rltCtrl.pastSpins'));
 var playerBalance = element(by.id('player-balance'));
 var playerBet = element.all(by.repeater('bets in rltCtrl.bet'));
 var repeatBtn = element(by.id('repeat-btn'));
-var timer = element(by.id('timer'));
+var message = element(by.id('display-msg'));
 var winnings = element(by.id('winnings'));
 
 beforeEach(function(){
@@ -18,8 +18,8 @@ describe('Roulette table', function() {
     expect(browser.getTitle()).toEqual('Roulette');
   });
 
-  it('Displays a timer for betting, starting at 10', function() {
-    expect(timer.getText()).toEqual('10')
+  it('Displays where the player can bet or not', function() {
+    expect(message.getText()).toEqual('Place your bets... 10')
   })
 
   xit('The wheel spins even without placing a bet', function() {
