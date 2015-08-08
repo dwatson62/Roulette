@@ -7,8 +7,6 @@ Roulette
 
 ## Synopsis
 
-Available on Heroku: [https://roulette62.herokuapp.com/] (https://roulette62.herokuapp.com/)
-
 This is my personal project to practice Angular and CSS styling. It is a game replicating European style Roulette using play money.
 
 Currently players can bet multiple amounts on different on different numbers, colours, odd/even, columns, high/low and dozens. Can also view past spins for that particular session, and repeat the previous bet. Angular $interval is being used to spin the wheel every 15 seconds, with no more bets being allowed for the final 5.
